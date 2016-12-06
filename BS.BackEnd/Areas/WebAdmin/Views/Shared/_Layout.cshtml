@@ -1,0 +1,539 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no">
+    <meta charset="UTF-8">
+
+    <meta name="description" content="Violate Responsive Admin Template">
+    <meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
+
+    <title>@ViewBag.Title - Super Admin Responsive Template</title>
+
+    @Styles.Render("~/Areas/WebAdmin/Content/css")
+</head>
+<body>
+    <!-- BEGIN SECTION -->
+    <section id="container">
+        <!-- BEGIN HEADER -->
+        <header class="header white-bg">
+            <!-- SIDEBAR TOGGLE BUTTON -->
+            <div class="sidebar-toggle-box">
+                <div data-placement="right" class="fa fa-bars tooltips">
+                </div>
+            </div>
+            <!-- SIDEBAR TOGGLE BUTTON  END-->
+            <a href="@Url.Action("Index", "News" )" class="logo">
+                Jason
+                <span>
+                    Chen
+                </span>
+            </a>
+            <!-- START HEADER  NAV -->
+            <nav class="nav notify-row" id="top_menu">
+                <ul class="nav top-menu">
+                    <li id="header_inbox_bar" class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <i class="fa fa-envelope-o">
+                            </i>
+                            <span class="badge bg-important">
+                                5
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu extended inbox">
+                            <li class="notify-arrow notify-arrow-blue">
+                            </li>
+                            <li>
+                                <p class="blue">
+                                    You have 5 new messages
+                                </p>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="photo">
+                                        <img alt="avatar" src="~/Areas/WebAdmin/Content/Images/avatar-mini.jpg" />
+                                    </span>
+                                    <span class="subject">
+                                        <span class="from">
+                                            Chintan Pandya
+                                        </span>
+                                        <span class="time">
+                                            Just now
+                                        </span>
+                                    </span>
+                                    <span class="message">
+                                        Hello, this is an example msg.
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Inbox","MailBox")">
+                                    See all messages
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- END NOTIFY INBOX BAR -->
+                    <!-- START NOTIFY NOTIFICATION BAR -->
+
+                    <li id="header_notification_bar" class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <i class="fa fa-bell-o">
+                            </i>
+                            <span class="badge bg-warning">
+                                7
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu extended notification">
+                            <li class="notify-arrow notify-arrow-blue">
+                            </li>
+                            <li>
+                                <p class="blue">
+                                    You have 7 new notifications
+                                </p>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="label label-primary">
+                                        <i class="fa fa-bullhorn">
+                                        </i>
+                                    </span>
+                                    Application error.
+                                    <span class="small italic">
+                                        10 mins
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","Log")">
+                                    See all notifications
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- END NOTIFY NOTIFICATION BAR -->
+                </ul>
+            </nav>
+            <!-- END HEADER NAV -->
+            <!-- START USER LOGIN DROPDOWN  -->
+            <div class="top-nav ">
+                <ul class="nav pull-right top-menu">
+                    <li>
+                        <input type="text" class="form-control search" placeholder="Search">
+                    </li>
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <img alt="" src="~/Areas/WebAdmin/Content/Images/avatar1_small.jpg" />
+                            <span class="username">
+                                JasonChen
+                            </span>
+                            <b class="caret">
+                            </b>
+                        </a>
+                        <ul class="dropdown-menu extended logout">
+                            <li class="log-arrow-up">
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Info", "Home" )">
+                                    <i class=" fa fa-suitcase">
+                                    </i>
+                                    个人档案
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Setting" )">
+                                    <i class="fa fa-cog">
+                                    </i>
+                                    设置
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Lock", "Login")">
+                                    <i class="fa fa-cog">
+                                    </i>
+                                    锁定
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Login" )">
+                                    <i class="fa fa-key">
+                                    </i>
+                                    注销
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- END USER LOGIN DROPDOWN  -->
+        </header>
+        <!-- END HEADER -->
+        <!-- BEGIN SIDEBAR -->
+        <aside>
+            <div id="sidebar" class="nav-collapse">
+                <ul class="sidebar-menu" id="nav-accordion">
+                    <li>
+                        <a href="@Url.Action("Index", "Setting" )" class="active">
+                            <i class="fa fa-dashboard">
+                            </i>
+                            <span>
+                                控制面板
+                            </span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-shopping-cart">
+                            </i>
+                            <span>
+                                新闻
+                            </span>
+                            <span class="label label-success span-sidebar">
+                                2
+                            </span>
+                        </a>
+                        <ul class="sub">
+                            <li>@Html.ActionLink("新闻", "Index", "News")</li>
+                            <li>
+                                @Html.ActionLink("新闻类别", "Index", "NewsClass")
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-shopping-cart">
+                            </i>
+                            <span>
+                                案例
+                            </span>
+                            <span class="label label-success span-sidebar">
+                                4
+                            </span>
+                        </a>
+                        <ul class="sub">
+                            <li>@Html.ActionLink("案例列表", "Index", "Cases")</li>
+
+                            <li>
+                                <a href="product_details.html">
+                                    案例详细
+                                </a>
+                            </li>
+                            <li>
+                                <a href="product_list.html">
+                                    案例分类列表
+                                </a>
+                            </li>
+                            <li>
+                                <a href="product_details.html">
+                                    案例分类详细
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a class="sa-side-table" href="javascript:;">
+                            <i class="fa fa-shopping-cart">
+                            </i>
+                            <span>
+                                产品
+                            </span>
+                            <span class="label label-success span-sidebar">
+                                4
+                            </span>
+                        </a>
+                        <ul class="sub">
+                            <li>@Html.ActionLink("产品列表", "Index", "Product")</li>
+                            <li>
+                                <a href="product_details.html">
+                                    产品详细
+                                </a>
+                            </li>
+                            <li>
+                                <a href="product_list.html">
+                                    产品分类列表
+                                </a>
+                            </li>
+                            <li>
+                                <a href="product_details.html">
+                                    产品分类详细
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a class="sa-side-table" href="javascript:;">
+                            <i class="fa fa-shopping-cart">
+                            </i>
+                            <span>
+                                问答系统
+                            </span>
+                            <span class="label label-success span-sidebar">
+                                2
+                            </span>
+                        </a>
+                        <ul class="sub">
+                            <li>@Html.ActionLink("问答列表", "Index", "Question")</li>
+                            <li>@Html.ActionLink("问答类别", "Index", "Question")</li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="@Url.Action("Index", "Widget" )">
+                            <i class="fa fa-cogs">
+                            </i>
+                            <span>
+                                图库
+                            </span>
+                            <span class="label label-primary span-sidebar">
+                                1
+                            </span>
+                        </a>
+                        <ul class="sub">
+                            <li>
+                                <a href="@Url.Action("Index", "Picture")">
+                                    新闻图库
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-tasks">
+                            </i>
+                            <span>
+                                表单
+                            </span>
+                            <span class="label label-info span-sidebar">
+                                7
+                            </span>
+                        </a>
+                        <ul class="sub">
+                            @*<li><a href="@Url.Action(" index", "From" )">基本表单元素</a></li>
+                                <li><a href="@Url.Action(" components", "From" )">表单组件</a></li>
+                                <li><a href="@Url.Action(" examples", "From" )">表单示例</a></li>
+                                <li><a href="@Url.Action(" validation", "From" )">表单验证</a></li>*@
+                            <li>
+                                <a href="form_component.html">
+                                    表单组件
+                                </a>
+                            </li>
+                            <li>
+                                <a href="advanced_form_components.html">
+                                    高级表单组件
+                                </a>
+                            </li>
+                            <li>
+                                <a href="form_wizard.html">
+                                    表单布局
+                                </a>
+                            </li>
+                            <li>
+                                <a href="form_validation.html">
+                                    表单验证
+                                </a>
+                            </li>
+                            <li>
+                                <a href="dropzone.html">
+                                    拖动上传
+                                </a>
+                            </li>
+                            <li>
+                                <a href="file_upload.html">
+                                    多文件上传
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class=" fa fa-envelope">
+                            </i>
+                            <span>
+                                邮件
+                            </span>
+                            <span class="label label-danger span-sidebar">
+                                2
+                            </span>
+                        </a>
+                        <ul class="sub">
+                            <li>
+                                <a href="@Url.Action("Inbox", "MailBox")">
+                                    收件箱
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("MailDetails", "MailBox")">
+                                    邮件详情
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-shopping-cart">
+                            </i>
+                            <span>
+                                产品
+                            </span>
+                            <span class="label label-success span-sidebar">
+                                2
+                            </span>
+                        </a>
+                        <ul class="sub">
+                            <li>
+                                <a href="product_list.html">
+                                    列表视图
+                                </a>
+                            </li>
+                            <li>
+                                <a href="product_details.html">
+                                    详细视图
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-shopping-cart">
+                            </i>
+                            <span>
+                                系统设置
+                            </span>
+                            <span class="label label-success span-sidebar">
+                                4
+                            </span>
+                        </a>
+                        <ul class="sub">
+                            <li>@Html.ActionLink("个人信息", "Info", "Home")</li>
+                            <li>@Html.ActionLink("消息页", "Message", "Setting")</li>
+                            <li>@Html.ActionLink("404错误页面", "Error", "Setting")</li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-glass">
+                            </i>
+                            <span>
+                                拓展页
+                            </span>
+                            <span class="label label-primary span-sidebar">
+                                5
+                            </span>
+                        </a>
+                        <ul class="sub">
+                            <li>
+                                <a href="blank.html">
+                                    空白页
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Lock", "Login" )">
+                                    锁屏
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Search" )">
+                                    搜索页
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "LoginHistory" )">
+                                    登录历史
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-sitemap">
+                            </i>
+                            <span>
+                                多级菜单
+                            </span>
+                        </a>
+                        <ul class="sub">
+                            <li>
+                                <a href="javascript:;">
+                                    Menu Item 1
+                                </a>
+                            </li>
+                            <li class="sub-menu">
+                                <a href="boxed_page.html">
+                                    Menu Item 2
+                                    <span class="label label-primary">
+                                        1
+                                    </span>
+                                </a>
+                                <ul class="sub">
+                                    <li>
+                                        <a href="javascript:;">
+                                            Item 2.1
+                                        </a>
+                                    </li>
+                                    <li class="sub-menu">
+                                        <a href="javascript:;">
+                                            Menu Item 3
+                                            <span class="label label-primary">
+                                                3
+                                            </span>
+                                        </a>
+                                        <ul class="sub">
+                                            <li>
+                                                <a href="javascript:;">
+                                                    Item 3.1
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    Item 3.2
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    Item 3.2
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <!-- END SIDEBAR -->
+        <!-- BEGIN MAIN CONTENT -->
+        <section id="main-content">
+            <!-- BEGIN WRAPPER  -->
+            <section class="wrapper site-min-height">
+                @RenderBody()
+            </section>
+            <!-- END WRAPPER  -->
+        </section>
+        <!-- END MAIN CONTENT -->
+        <!-- BEGIN FOOTER -->
+        <footer class="site-footer">
+            <div class="text-center">
+                2016 &copy; Olive Admin by
+                <a href="" target="_blank">
+                    Jason Chen
+                </a>
+                <a href="#" class="go-top">
+                    <i class="fa fa-angle-up">
+                    </i>
+                </a>
+            </div>
+        </footer>
+        <!-- END  FOOTER -->
+    </section>
+    <!-- END SECTION -->
+    <!-- BEGIN JS -->
+    @Scripts.Render("~/Areas/WebAdmin/bundles/BeginJs")  
+    @Scripts.Render("~/bundles/Vue")
+     
+    
+    <!-- END JS -->
+    @RenderSection("scripts", required: false)
+</body>
+</html>

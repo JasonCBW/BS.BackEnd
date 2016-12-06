@@ -1,0 +1,75 @@
+﻿@using Entity.Base
+@using Webdiyer.WebControls.Mvc
+@model PagedList<Product>
+
+
+<table class="table table-striped table-hover table-bordered" id="editable-sample">
+    <thead>
+        <tr>
+            <th><input type="checkbox" id="selectAll" class="checkbox form-control w-20"></th>
+            <th>编号</th>
+            <th>标题</th>
+            <th>内容</th>
+            <th>备注</th>
+            <th>分类名称</th>
+            <th>SEO标题</th>
+            <th>SEO关键字</th>
+            <th>SEO描述</th>
+            <th>文件名</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><input type="checkbox" class="checkbox form-control w-20" value="@item.ID"></td>
+                <td>@item.ID</td>
+                <td><a href="#">@item.Title</a></td>
+                <td class="hidden-phone">@item.Content</td>
+                <td>@item.Remark</td>
+                <td><span class="label label-info label-mini">@item.ProductClassTitle</span></td>
+                <td>@item.SeoTitle</td>
+                <td>@item.SeoKeyWords</td>
+                <td>@item.SeoDescription</td>
+                <td>@item.FileName</td>
+                <td>
+                    <button class="btn btn-success btn-xs">
+                        <i class=" fa fa-check">
+                        </i>
+                    </button>
+                    <button class="btn btn-primary btn-xs">
+                        <i class="fa fa-pencil">
+                        </i>
+                    </button>
+                    <button class="btn btn-danger btn-xs">
+                        <i class="fa fa-trash-o ">
+                        </i>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="media text-center">
+    @Ajax.Pager(Model, new PagerOptions
+{
+    PageIndexParameterName = "page",
+    ContainerTagName = "ul",
+    PrevPageText = "上页",
+    NextPageText = "下页",
+    FirstPageText = "首页",
+    LastPageText = "尾页",
+    CssClass = "dataTables_paginate paging_bootstrap pagination",
+    CurrentPagerItemTemplate = "<li class=\"active\"><a href=\"#\">{0}</a></li>",
+    DisabledPagerItemTemplate = "<li class=\"disabled\"><a>{0}</a></li>",
+    PagerItemTemplate = "<li>{0}</li>"
+},
+    new MvcAjaxOptions
+    {
+        UpdateTargetId = "produclist",
+        EnablePartialLoading = false,
+        EnableHistorySupport = false
+    })
+</div>

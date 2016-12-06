@@ -1,0 +1,108 @@
+﻿@using Entity.Base
+@using PagedList.Mvc;
+@model PagedList.IPagedList<NewsClass>
+@{
+    ViewBag.Title = "ClassIndex";
+    Layout = "~/Areas/WebAdmin/Views/Shared/_Layout.cshtml";
+}
+
+<section class="panel">
+    <header class="panel-heading">
+        <a class="btn btn-sm btn-success" href="@Url.Action("Create","NewsClass")">
+            <i class="glyphicon glyphicon-plus">
+            </i>
+            <span>新增</span>
+        </a>
+        <a class="btn btn-sm btn-danger delete" id="deleteAll">
+            <i class="glyphicon glyphicon-trash">
+            </i>
+            <span>删除所选</span>
+        </a>
+        <input id="HideIDList" type="text" style="display:none;" />
+    </header>
+    <div class="panel-body">
+        <div class="adv-table editable-table">
+            <table class="table table-striped table-hover table-bordered" id="editable-sample">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="selectAll" class="checkbox form-control w-20"></th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().Title)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().Sort)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().SeoTitle)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().SeoKeyWords)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().SeoDescription)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().Remark)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody class="chk-all">
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td><input type="checkbox" class="checkbox form-control w-20" value="@item.ID"></td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Sort)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SeoTitle)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SeoKeyWords)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SeoDescription)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Remark)
+                            </td>
+                            <td>
+                                <a class="btn btn-primary btn-xs" href="@Url.Action("Edit", "NewsClass", new { ID=@item.ID})">
+                                    <i class="fa fa-pencil">
+                                    </i>
+                                </a>
+                                <a class="btn btn-danger btn-xs" name="delete" id="@item.ID">
+                                    <i class="fa fa-trash-o ">
+                                    </i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="media text-center">
+                每页 @Model.PageSize 条记录，共 @Model.PageCount 页，当前第 @Model.PageNumber 页
+
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }),
+                PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions()
+                {
+                    DisplayLinkToFirstPage = PagedListDisplayMode.Always,
+                    DisplayLinkToLastPage = PagedListDisplayMode.Always,
+                    LinkToFirstPageFormat = "首页",
+                    LinkToPreviousPageFormat = "上一页",
+                    LinkToNextPageFormat = "下一页",
+                    LinkToLastPageFormat = "尾页"
+                }, new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "results" }))
+            </div>
+        </div>
+    </div>
+</section>
+@section scripts{
+    <script src="~/Areas/WebAdmin/Scripts/bootbox.min.js"></script>
+    <script src="~/Areas/WebAdmin/CommonJS/Common.js"></script>
+
+}

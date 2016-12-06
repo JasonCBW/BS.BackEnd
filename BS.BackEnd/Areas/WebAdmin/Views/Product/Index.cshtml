@@ -1,0 +1,30 @@
+﻿@using Entity.Base
+@using Webdiyer.WebControls.Mvc
+@model PagedList<Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/WebAdmin/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- BEGIN ROW -->
+<section class="panel">
+    <header class="panel-heading">
+        <span class="label label-primary">产品列表</span>
+        <span class="tools pull-right">
+            <a href="javascript:;" class="fa fa-chevron-down"></a>
+        </span>
+    </header>
+    <div class="panel-body">
+        <div class="adv-table editable-table" id="produclist">
+            @Html.Partial("_PartialProductList", Model)
+        </div>
+    </div>
+</section>
+<!-- END ROW -->
+@section scripts
+{
+    <script src="~/Areas/WebAdmin/CommonJS/Common.js"></script>
+    @{Html.RegisterMvcPagerScriptResource();}
+}

@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/WebAdmin/Views/Shared/_Layout.cshtml";
+}
+
+
+<h4 class="page-title b-0">Messages-Detail</h4>
+
+<div class="listview list-click">
+    <header class="listview-header media">
+        <ul class="list-inline list-mass-actions pull-left">
+            <li class="m-r-10">
+                <a class="tooltips" title="" href="@Url.Action("Message", "Setting")" data-original-title="Back to Inbox">
+                    <i class="sa-list-back"></i>
+                </a>
+            </li>
+
+            <li>
+                <a class="tooltips" title="" href="" data-original-title="Archive">
+                    <i class="sa-list-archive"></i>
+                </a>
+            </li>
+            <li>
+                <a class="tooltips" title="" href="" data-original-title="Spam">
+                    <i class="sa-list-spam"></i>
+                </a>
+            </li>
+            <li>
+                <a class="tooltips" title="" href="" data-original-title="Delete">
+                    <i class="sa-list-delete"></i>
+                </a>
+            </li>
+            <li>
+                <a class="tooltips" title="" href="" data-original-title="Move">
+                    <i class="sa-list-move"></i>
+                </a>
+            </li>
+
+        </ul>
+        <div class="clearfix"></div>
+    </header>
+
+    <h2 class="page-title">Re: Regarding website updates</h2>
+    <div class="media message-header o-visible">
+        <img src="~/Areas/WebAdmin/Content/Images/profile-pics/6.jpg" />
+
+        <div class="media-body">
+            <span class="f-bold pull-left m-b-5">Malinda Hollaway</span>
+            <div class="clearfix"></div>
+            <span class="dropdown m-t-5">
+                To <a class="underline" href="">Me</a> on 12th February 2014
+            </span>
+        </div>
+    </div>
+
+    <div class="p-15">
+        <p>Hi Wendy,</p>
+        <p>Morbi dignissim tortor urna, eget feugiat ipsum rutrum et. Aenean sem nisi, ultricies vel lorem nec, blandit venenatis tellus. Donec accumsan, turpis vel euismod ultrices, massa quam ultricies turpis, non pretium dolor nulla sit amet sem. Ut vel blandit sem, vitae tristique tellus. Suspendisse odio ligula, feugiat eu velit in, mattis pharetra libero. Nunc ac tincidunt nibh. Nullam mauris urna, elementum ac odio et, condimentum suscipit orci. Nulla pellentesque a magna et pellentesque. Suspendisse euismod convallis nisi sed placerat.</p>
+        <p>Morbi imperdiet tempor velit, sed sagittis ipsum. In gravida, enim ac commodo congue, purus augue faucibus tellus, vel tempus sapien enim eget urna. Mauris molestie fringilla orci, et scelerisque sem dapibus convallis. In ut erat quam. Donec facilisis ipsum ac nulla lobortis.</p>
+        <p>Regards,<br> Malinda Hollaway</p>
+    </div>
+
+    <hr class="whiter">
+    <div class="p-15">
+        <p>3 Attachements - <a href="" class="underline">Download all as ZIP</a></p>
+
+        <a href="" class="message-attachement news tile">
+            <img alt="Meeting Agenda.doc" src="~/Areas/WebAdmin/Content/Images/filemanager/icon/doc.png">
+            <br>
+            <small class="t-overflow">Meeting Agenda.doc</small>
+        </a>
+        <a href="" class="message-attachement news tile">
+            <img alt="Profile Picture.jpg" src="~/Areas/WebAdmin/Content/Images/profile-pics/6.jpg">
+            <br>
+            <small class="t-overflow">Profile Picture.jpg</small>
+        </a>
+        <a href="" class="message-attachement news tile">
+            <img alt="Presentation.pdf" src="~/Areas/WebAdmin/Content/Images/filemanager/icon/pdf.png">
+            <br>
+            <small class="t-overflow">Presentation.pdf</small>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,187 @@
+﻿@{
+    ViewBag.Title = "MailDetails";
+    Layout = "~/Areas/WebAdmin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="mail-box">
+    <aside class="sm-side">
+        <!-- BEGIN INBOX HEAD  -->
+        <div class="user-head">
+            <a href="javascript:;" class="inbox-avatar">
+                <img src="~/Areas/WebAdmin/Content/Images/mail-avatar.jpg" alt="" />
+            </a>
+            <div class="user-name">
+                <h5><a href="#">Pruthvi Bardolia</a></h5>
+                <span><a href="#">Pruthvi@tripzmate.com</a></span>
+            </div> 
+        </div>
+        <!-- INBOX HEADER -->
+        <!-- INBOX BODY -->
+        <div class="inbox-body">
+            <a class="btn btn-compose" data-toggle="modal" href="#myModal">
+                Compose
+            </a>
+            <div class="modal fade" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Compose</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">To</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" class="form-control" id="inputEmail1" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">Cc / Bcc</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" class="form-control" id="cc" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">Subject</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" class="form-control" id="inputPassword1" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">Message</label>
+                                    <div class="col-lg-10">
+                                        <textarea name="" id="test" class="form-control" cols="30" rows="10"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-offset-2 col-lg-10">
+                                        <span class="btn green fileinput-button">
+                                            <i class="fa fa-plus fa fa-white"></i>
+                                            <span>Attachment</span>
+                                            <input type="file" multiple="" name="files[]">
+                                        </span>
+                                        <button type="submit" class="btn btn-send">发送</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- INBOX HEADER -->
+        <!-- INBOX NAV -->
+        <ul class="inbox-nav inbox-divider">
+            <li class="active">
+                <a href="#"><i class="fa fa-inbox"></i>收件箱<span class="label label-danger pull-right">2</span></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-envelope-o"></i>已发送</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-bookmark-o"></i> Important</a>
+            </li>
+            <li>
+                <a href="#"><i class=" fa fa-external-link"></i>草稿<span class="label label-info pull-right">30</span></a>
+            </li>
+            <li>
+                <a href="#"><i class=" fa fa-trash-o"></i>垃圾箱</a>
+            </li>
+        </ul>
+    </aside>
+    <aside class="lg-side">
+        <div class="inbox-head">
+            <h3>View Mail</h3>
+            <form class="pull-right position" action="#">
+                <div class="input-append">
+                    <input type="text" placeholder="Search Mail" class="sr-input">
+                    <button type="button" class="btn sr-btn"><i class="fa fa-search"></i></button>
+                </div>
+            </form>
+        </div>
+        <div class="inbox-body">
+            <div class="heading-inbox row">
+                <div class="col-md-8">
+                    <div class="compose-btn">
+                        <a class="btn btn-sm btn-info" href="#"><i class="fa fa-reply"></i> Reply</a>
+                        <button title="" data-placement="top" data-toggle="tooltip" type="button" data-original-title="Print" class="btn  btn-sm tooltips"><i class="fa fa-print"></i> </button>
+                        <button title="" data-placement="top" data-toggle="tooltip" data-original-title="Trash" class="btn btn-sm tooltips"><i class="fa fa-trash-o"></i></button>
+                    </div>
+                </div>
+                <div class="col-md-4 text-right">
+                    <p class="date"> 8:02 PM 12 FEB 2014</p>
+                </div>
+                <div class="col-md-12">
+                    <h4>
+                        Olive Admin Bootstrap 3 Powered  Responsive Flat Dashboard Template...
+                    </h4>
+                </div>
+            </div>
+            <div class="sender-info">
+                <div class="row">
+                    <div class="col-md-12">
+                        <img alt="" src="~/Areas/WebAdmin/Content/Images/mail-avatar.jpg" />
+                        <strong>Chintan</strong>
+                        <span>[bmpcom9401@gmail.com]</span>
+                        to
+                        <strong>ME</strong>
+                        <a class="sender-dropdown " href="javascript:;">
+                            <i class="fa fa-chevron-down"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="view-mail">
+                <p>Faucibus rutrum. Phasellus sodales vulputate urna, vel accumsan augue egestas ac. Donec vitae leo at sem lobortis porttitor eu consequat risus. Mauris sed congue orci. Donec ultrices faucibus rutrum. Phasellus sodales vulputate urna, vel accumsan augue egestas ac. Donec vitae leo at sem lobortis porttitor eu consequat risus. Mauris sed congue orci. Donec ultrices faucibus rutrum. Phasellus sodales vulputate urna, vel accumsan augue egestas ac. Donec vitae leo at sem lobortis porttitor eu consequat risus. Mauris sed congue orci. </p>
+                <p>
+                    Consequat risus. Mauris sed congue orci. Donec ultrices <a href="#">flatlab</a>. Phasellus sodales vulputate urna, vel accumsan augue egestas ac. Donec
+                    <a href="#">vitae leo at sem lobortis porttitor eu consequat risus</a>. Mauris sed congue orci. Donec ultrices faucibus rutrum. Phasellus sodales vulputate urna, vel accumsan augue egestas ac. Donec vitae leo at sem lobortis porttitor eu consequat risus. Mauris sed congue orci.
+                </p>
+                <p>Modales vulputate urna, vel <a href="#">thevectorlab.net</a>. Donec vitae leo at sem lobortis porttitor eu consequat risus. Mauris sed congue orci. Donec ultrices faucibus rutrum. Phasellus sodales vulputate urna, vel accumsan augue egestas ac. Donec vitae leo at sem lobortis porttitor eu consequat risus. Mauris sed congue orci. </p>
+            </div>
+            <div class="attachment-mail">
+                <p>
+                    <span><i class="fa fa-paperclip"></i> 2 attachments &mdash; </span>
+                    <a href="#">Download all attachments</a>
+                    |
+                    <a href="#">View all images</a>
+                </p>
+                <ul>
+                    <li>
+                        <a href="#" class="atch-thumb">
+                            <img src="~/Areas/WebAdmin/Content/Images/pro-ac-2.png" alt="img" />
+                        </a>
+                        <div class="file-name">
+                            img_name.jpg
+                        </div>
+                        <span>40KB</span>
+                        <div class="links">
+                            <a href="#">View</a> -
+                            <a href="#">Download</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" class="atch-thumb">
+                            <img src="~/Areas/WebAdmin/Content/Images/pro-ac-1.png" alt="img" />
+                        </a>
+                        <div class="file-name">
+                            img_name.jpg
+                        </div>
+                        <span>30KB</span>
+                        <div class="links">
+                            <a href="#">View</a> -
+                            <a href="#">Download</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="compose-btn pull-left">
+                <a class="btn btn-sm btn-info" href="#"><i class="fa fa-reply"></i> Reply</a>
+                <button class="btn btn-sm "><i class="fa fa-arrow-right"></i> Forward</button>
+                <button title="" data-placement="top" data-toggle="tooltip" type="button" data-original-title="Print" class="btn  btn-sm tooltips"><i class="fa fa-print"></i> </button>
+                <button title="" data-placement="top" data-toggle="tooltip" data-original-title="Trash" class="btn btn-sm tooltips"><i class="fa fa-trash-o"></i></button>
+            </div>
+        </div>
+    </aside>
+</div>

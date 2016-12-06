@@ -1,0 +1,185 @@
+﻿@model Entity.Base.News
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/WebAdmin/Views/Shared/_Layout.cshtml";
+}
+@section scripts {
+    <script src="~/Areas/WebAdmin/Content/assets/bootstrap-validator/bootstrapValidator.min.js" type="text/javascript"></script>
+    <link href="~/Areas/WebAdmin/Content/assets/bootstrap-fileupload/fileinput.css" rel="stylesheet" />
+    <script src="~/Areas/WebAdmin/Content/assets/bootstrap-fileupload/fileinput.js"></script>
+    <script src="~/Areas/WebAdmin/Content/assets/bootstrap-fileupload/zh.js"></script>
+    <script src="~/Areas/WebAdmin/Scripts/bootbox.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script type="text/javascript">
+
+        $('form').bootstrapValidator({
+            fields: {
+                Title: {
+                    validators: {
+                        notEmpty: {
+                            message: '标题不能为空'
+                        }
+                    }
+                }
+            }
+        });
+
+
+        $("#ImageUrlList").fileinput({
+            language: 'zh',
+            uploadUrl: '/WebAdmin/News/ImgUpload',
+            uploadAsync: false,//同步上传，一次传多个文件，为true时，为多个文件多次请求上传
+            showUpload: true,//是否显示上传按钮
+            showCaption: false,//是否显示输入框
+            dropZoneEnabled: false,
+            maxFileCount: 10,
+            msgFilesTooMany: "选择上传的文件数量超过允许的最大数值！",
+            previewFileIcon: '<i class="fa fa-file"></i>',
+            allowedPreviewTypes: ['image'],
+            allowedFileExtensions: ['jpg', 'png', 'jpeg', 'bmp', 'gif'],
+            maxFileSize: 10240
+        }).on("filebatchselected", function (event, files) {
+            //为自动上传时取消注释
+            //$(this).fileinput("upload");
+        }).on("filebatchuploadsuccess", function (event, data, previewId, index) {
+            //uploadAsync为true时，才是fileuploaded的响应结果，为false时，才是filebatchuploadsuccess的响应结果
+            $("#BigImageUrlList").val(data.response);
+        });
+
+        //提交成功后弹出对话框
+        function ShowTips(data) {
+            alert(data);
+            bootbox.alert({
+                message: data,
+                size: 'small',
+                backdrop: true,
+                callback: function () {
+                    window.location.href = "/WebAdmin/News/";
+                }
+            })
+        }
+    </script>
+
+}
+
+<section class="panel">
+    <header class="panel-heading">
+        @Html.ActionLink("返回列表", "Index", "News", new { }, new { @class = "label label-primary" })
+    </header>
+    <div class="panel-body">
+        @using (Html.BeginForm("Create", "News", FormMethod.Post, new { @id = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.Label("标题", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("所属分类", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-2">
+                        @Html.DropDownList("NewsClassID", null, htmlAttributes: new { @class = "form-control m-bot15" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("推荐", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.CheckBoxFor(model => model.IsElite, new { @class = "checkbox form-control w-20" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("点击数", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-2">
+                        @Html.EditorFor(model => model.Hits, new { htmlAttributes = new { @class = "form-control", @Value = "1" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("状态", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.CheckBoxFor(model => model.Status, new { @class = "checkbox form-control w-20" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("排序", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-2">
+                        @Html.EditorFor(model => model.Sort, new { htmlAttributes = new { @class = "form-control", @Value = "1" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("作者", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("来源", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Source, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("内容", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Content, 8, 1, htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("图片上传", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input id="ImageUrlList" type="file" class="file-loading" multiple />
+                        @Html.HiddenFor(model => model.BigImageUrlList)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("SEO标题", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SeoTitle, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("SEO关键词", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SeoKeyWords, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("SEO描述", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.SeoDescription, 8, 1, htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("备注", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Remark, 8, 1, htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" class="btn btn-primary" value="保存" />
+                        @Html.ActionLink("取消", "Index", "News", null, new { @class = "btn btn-default" })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section> 

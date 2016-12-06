@@ -1,0 +1,611 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/WebAdmin/Views/Shared/_Layout.cshtml";
+}
+
+<section class="panel">
+    <header class="panel-heading">
+        <span class="label label-primary">
+            站内搜索
+        </span>
+        <span class="tools pull-right">
+            <a href="javascript:;" class="fa fa-chevron-down">
+            </a> 
+        </span>
+    </header>
+    <div class="panel-body">
+        <form class="form-horizontal search-result">
+            <div class="form-group">
+                <label class="col-lg-1 col-sm-1 control-label">
+                    搜索
+                </label>
+                <div class="col-lg-8 col-sm-8">
+                    <input type="text" class="form-control input-xxlarge">
+                    <p class="help-block">
+                        大约 5,880,000 结果 (0.23 秒)
+                    </p>
+                </div>
+                <div class="col-lg-2">
+                    <button class="btn " type="submit">
+                        搜索
+                    </button>
+                </div>
+            </div>
+        </form>
+        <div class="panel with-nav-tabs panel-info panel-square panel-no-border">
+            <div class="panel-heading">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#example-search-article" data-toggle="tab">
+                            <i class="fa fa-edit">
+                            </i>
+                            文章
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="#example-search-images" data-toggle="tab">
+                            <i class="fa fa-picture-o">
+                            </i>
+                            图片
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="#example-search-file" data-toggle="tab">
+                            <i class="fa fa-cloud-download">
+                            </i>
+                            文件
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="#example-search-user" data-toggle="tab">
+                            <i class="fa fa-users">
+                            </i>
+                            用户
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="panel-collapse-1" class="collapse in">
+                <div class="panel-body">
+                    <div class="alert alert-info fade in alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                            ×
+                        </button>
+                        <strong>
+                            1,411
+                        </strong>
+                        results for
+                        <i>
+                            something keyword
+                        </i>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane fade active in" id="example-search-article">
+                            <div class="row">
+                                <div class="col-sm-8 col-xs-12">
+                                    <ul class="media-list">
+                                        <li class="media">
+                                            <div class="media-body">
+                                                <h4 class="media-heading">
+                                                    <a href="#fakelink">
+                                                        Lorem
+                                                        <strong>
+                                                            ipsum
+                                                        </strong>
+                                                        dolor sit amet, consectetuer adipiscing elit
+                                                    </a>
+                                                </h4>
+                                                <p class="text-info">
+                                                    http://themeforest.net/lorem-ipsum-dolor-sit...
+                                                </p>
+                                                <p>
+                                                    <i class="fa fa-star text-warning">
+                                                    </i>
+
+                                                    <i class="fa fa-star text-warning">
+                                                    </i>
+
+                                                    <i class="fa fa-star text-warning">
+                                                    </i>
+
+                                                    <i class="fa fa-star text-warning">
+                                                    </i>
+
+                                                    <i class="fa fa-star">
+                                                    </i>
+                                                    |
+                                                    based on 1,254 review
+                                                </p>
+                                                <p>
+                                                    <span class="text-muted">
+                                                        April 20, 2014
+                                                    </span>
+                                                    -
+                                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li class="media">
+                                            <div class="media-body">
+                                                <h4 class="media-heading">
+                                                    <a href="#fakelink">
+                                                        Lorem
+                                                        <strong>
+                                                            ipsum
+                                                        </strong>
+                                                        dolor sit amet, consectetuer adipiscing elit
+                                                    </a>
+                                                </h4>
+                                                <p class="text-info">
+                                                    http://themeforest.net/lorem-ipsum-dolor-sit...
+                                                </p>
+                                                <p>
+                                                    <i class="fa fa-star text-warning">
+                                                    </i>
+
+                                                    <i class="fa fa-star text-warning">
+                                                    </i>
+
+                                                    <i class="fa fa-star text-warning">
+                                                    </i>
+
+                                                    <i class="fa fa-star">
+                                                    </i>
+
+                                                    <i class="fa fa-star">
+                                                    </i>
+                                                    |
+                                                    based on 1,000 review
+                                                </p>
+                                                <p>
+                                                    <span class="text-muted">
+                                                        April 20, 2014
+                                                    </span>
+                                                    -
+                                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <hr>
+
+                                    <ul class="pagination success">
+                                        <li class="disabled">
+                                            <a href="#fakelink">
+                                                «
+                                            </a>
+                                        </li>
+                                        <li class="disabled">
+                                            <a href="#fakelink">
+                                                ‹
+                                            </a>
+                                        </li>
+                                        <li class="active">
+                                            <a href="#fakelink">
+                                                1
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#fakelink">
+                                                2
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#fakelink">
+                                                ...
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#fakelink">
+                                                20
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#fakelink">
+                                                ›
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#fakelink">
+                                                »
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <div class="tab-pane fade" id="example-search-images">
+                            <ul class="media-list">
+                                <li class="media">
+                                    <a href="#fakelink" class="pull-left">
+                                        <img src="~/Areas/WebAdmin/Content/Images/search-img.jpg" class="media-object image-thumb-result" alt="Avatar" />
+                                    </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">
+                                            <a href="#fakelink">
+                                                Lorem
+                                                <strong>
+                                                    ipsum
+                                                </strong>
+                                                photo
+                                            </a>
+                                        </h4>
+                                        <p class="text-info">
+                                            http://themeforest.net/lorem-ipsum-dolor-sit...
+                                        </p>
+                                        <p>
+                                            <strong class="text-info">
+                                                234 Kb
+                                            </strong>
+                                            |
+                                            <span class="text-info">
+                                                JPEG
+                                            </span>
+                                            |  April 20, 2014
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <a href="#fakelink" class="pull-left">
+                                        <img src="~/Areas/WebAdmin/Content/Images/search-img.jpg" class="media-object image-thumb-result" alt="Avatar" />
+                                    </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">
+                                            <a href="#fakelink">
+                                                Lorem
+                                                <strong>
+                                                    ipsum
+                                                </strong>
+                                                photo
+                                            </a>
+                                        </h4>
+                                        <p class="text-info">
+                                            http://themeforest.net/lorem-ipsum-dolor-sit...
+                                        </p>
+                                        <p>
+                                            <strong class="text-info">
+                                                234 Kb
+                                            </strong>
+                                            |
+                                            <span class="text-info">
+                                                JPEG
+                                            </span>
+                                            |  April 20, 2014
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <hr>
+                            <!-- Pagination success -->
+                            <ul class="pagination success">
+                                <li class="disabled">
+                                    <a href="#fakelink">
+                                        «
+                                    </a>
+                                </li>
+                                <li class="disabled">
+                                    <a href="#fakelink">
+                                        ‹
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a href="#fakelink">
+                                        1
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#fakelink">
+                                        2
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#fakelink">
+                                        ...
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#fakelink">
+                                        20
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#fakelink">
+                                        ›
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#fakelink">
+                                        »
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="example-search-file">
+                            <ul class="media-list media-sm media-dotted">
+
+
+
+                                <li class="media">
+                                    <a class="pull-left" href="#fakelink">
+                                        <i class="fa fa-copy icon-sm icon-rounded icon-info">
+                                        </i>
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <h4 class="media-heading">
+                                                    <a href="#fakelink">
+                                                        Tesis ku.docx
+                                                    </a>
+                                                </h4>
+                                                <p>
+                                                    <small class="text-info">
+                                                        10,214 Kb
+                                                    </small>
+                                                    |
+                                                    <small>
+                                                        20 April 2014
+                                                    </small>
+                                                </p>
+                                            </div>
+                                            <!-- /.com-sm-6 -->
+                                            <div class="col-sm-4">
+                                                <button class="btn btn-info btn-sm">
+                                                    <i class="fa fa-cloud-download">
+                                                    </i>
+                                                    Download
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!-- /.row -->
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <a class="pull-left" href="#fakelink">
+                                        <i class="fa fa-play-circle icon-sm icon-rounded icon-success">
+                                        </i>
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <h4 class="media-heading">
+                                                    <a href="#fakelink">
+                                                        Tears dont fall - Bullet for my valentine.avi
+                                                    </a>
+                                                </h4>
+                                                <p>
+                                                    <small class="text-info">
+                                                        25,214 Kb
+                                                    </small>
+                                                    |
+                                                    <small>
+                                                        20 April 2014
+                                                    </small>
+                                                </p>
+                                            </div>
+                                            <!-- /.com-sm-6 -->
+                                            <div class="col-sm-4">
+                                                <button class="btn btn-info btn-sm">
+                                                    <i class="fa fa-cloud-download">
+                                                    </i>
+                                                    Download
+                                                </button>
+                                                <button class="btn btn-warning btn-sm">
+                                                    <i class="fa fa-video-camera">
+                                                    </i>
+                                                    Watch
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!-- /.row -->
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <a class="pull-left" href="#fakelink">
+                                        <i class="fa fa-code icon-sm icon-rounded icon-danger">
+                                        </i>
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <h4 class="media-heading">
+                                                    <a href="#fakelink">
+                                                        bootstrap.min.css
+                                                    </a>
+                                                </h4>
+                                                <p>
+                                                    <small class="text-info">
+                                                        53 Kb
+                                                    </small>
+                                                    |
+                                                    <small>
+                                                        20 April 2014
+                                                    </small>
+                                                </p>
+                                            </div>
+                                            <!-- /.com-sm-6 -->
+                                            <div class="col-sm-4">
+                                                <button class="btn btn-info btn-sm">
+                                                    <i class="fa fa-cloud-download">
+                                                    </i>
+                                                    Download
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!-- /.row -->
+                                    </div>
+                                </li>
+                            </ul>
+                            <hr>
+                            <!-- Pagination success -->
+                            <ul class="pagination success">
+                                <li class="disabled">
+                                    <a href="#fakelink">
+                                        «
+                                    </a>
+                                </li>
+                                <li class="disabled">
+                                    <a href="#fakelink">
+                                        ‹
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a href="#fakelink">
+                                        1
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#fakelink">
+                                        2
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#fakelink">
+                                        ...
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#fakelink">
+                                        20
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#fakelink">
+                                        ›
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#fakelink">
+                                        »
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade " id="example-search-user">
+                            <ul class="media-list media-sm media-dotted">
+                                <li class="media">
+                                    <a class="pull-left" href="#fakelink">
+                                        <img class="media-object img-square" src="~/Areas/WebAdmin/Content/Images/avatar/avatar-3.jpg" alt="Avatar" />
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <h4 class="media-heading">
+                                                    <a href="#fakelink">
+                                                        Mya Weastell
+                                                    </a>
+                                                </h4>
+                                                <p>
+                                                    <i class="fa fa-map-marker">
+                                                    </i>
+                                                    Melbourne, Australia
+                                                    <br>
+                                                    <small class="text-info">
+                                                        4 murtual friends
+                                                    </small>
+                                                </p>
+                                            </div>
+                                            <!-- /.com-sm-6 -->
+                                            <div class="col-sm-4">
+                                                <button class="btn btn-info btn-sm">
+                                                    <i class="fa fa-envelope">
+                                                    </i>
+                                                    站内信
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!-- /.row -->
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <a class="pull-left" href="#fakelink">
+                                        <img class="media-object img-square" src="~/Areas/WebAdmin/Content/Images/avatar/avatar-4.jpg" alt="Avatar">
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <h4 class="media-heading">
+                                                    <a href="#fakelink">
+                                                        Carl Rodriguez
+                                                    </a>
+                                                </h4>
+                                                <p>
+                                                    <i class="fa fa-map-marker">
+                                                    </i>
+                                                    Singapore, Singapore
+                                                    <br>
+                                                    <small class="text-info">
+                                                        25 murtual friends
+                                                    </small>
+                                                </p>
+                                            </div>
+                                            <!-- /.com-sm-6 -->
+                                            <div class="col-sm-4">
+                                                <button class="btn btn-info btn-sm">
+                                                    <i class="fa fa-envelope">
+                                                    </i>
+                                                    站内信
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!-- /.row -->
+                                    </div>
+                                </li>
+                            </ul>
+                            <hr>
+                            <!-- Pagination success -->
+                            <ul class="pagination success">
+                                <li class="disabled">
+                                    <a href="#fakelink">
+                                        «
+                                    </a>
+                                </li>
+                                <li class="disabled">
+                                    <a href="#fakelink">
+                                        ‹
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a href="#fakelink">
+                                        1
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#fakelink">
+                                        2
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#fakelink">
+                                        ...
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#fakelink">
+                                        20
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#fakelink">
+                                        ›
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#fakelink">
+                                        »
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.tab-pane fade -->
+                    </div>
+                    <!-- /.tab-content -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.collapse in -->
+        </div>
+    </div>
+</section>

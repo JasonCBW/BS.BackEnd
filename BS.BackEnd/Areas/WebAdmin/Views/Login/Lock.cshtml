@@ -1,0 +1,85 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- BEGIN META -->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Custom Theme">
+    <!-- END META -->
+    <!-- BEGIN SHORTCUT ICON -->
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <!-- END SHORTCUT ICON -->
+    <title>
+        锁屏
+    </title>
+    <!-- BEGIN STYLESHEET-->
+    <link href="~/Areas/WebAdmin/Content/bootstrap.min.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
+    <link href="~/Areas/WebAdmin/Content/bootstrap-reset.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
+    <link href="~/Areas/WebAdmin/Content/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+    <link href="~/Areas/WebAdmin/Content/style.css" rel="stylesheet"><!-- THEME BASIC CSS -->
+    <link href="~/Areas/WebAdmin/Content/style-responsive.css" rel="stylesheet"><!-- THEME RESPONSIVE CSS -->
+    <!--[if lt IE 9]>
+    <script src="~/Areas/WebAdmin/Scripts/html5shiv.js">
+    </script>
+    <script src="~/Areas/WebAdmin/Scripts/respond.min.js">
+    </script>
+    <![endif]-->
+    <!-- END STYLESHEET-->
+</head>
+<body class="lock-screen" onload="startTime()">
+    <!-- LOCK SCREEN WRAPPER-->
+    <div class="lock-wrapper">
+        <div id="time">
+        </div>
+        <div class="lock-box text-center">
+            <img src="~/Areas/WebAdmin/Content/Images/follower-avatar.jpg" alt="lock avatar" />
+            <h1>
+                JasonChen
+            </h1>
+            <span class="locked">
+                已锁定
+            </span>
+            <form role="form" class="form-inline">
+                <div class="form-group col-lg-12">
+                    <input type="password" placeholder="Enter Password" class="form-control lock-input">
+                    <button class="btn btn-lock" type="submit">
+                        <i class="fa fa-arrow-right">
+                        </i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- LOCK SCREEN WRAPPER-->
+    <script>
+        // TIMER FUNCTION
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            // add a zero in front of numbers<10
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+            t = setTimeout(function () {
+                startTime()
+            }
+                         , 500);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/WebAdmin/Views/Shared/_Layout.cshtml";
+}
+
+<section class="panel">
+    <header class="panel-heading">
+        <i class="fa fa-hand-o-down"></i>
+        图册
+        <span class="tools pull-right">
+            <a href="javascript:;" class="fa fa-chevron-down"></a>
+        </span>
+    </header>
+    <div class="panel-body">
+        <ul class="grid cs-style-3">
+            <li>
+                <figure>
+                    <img src="~/Areas/WebAdmin/Content/Images/gallery/6.jpg" alt="img06" />
+                    <figcaption>
+                        <h3>Cheers</h3>
+                        <span>sumon ahmed</span>
+                        <a class="fancybox" data-fancybox-group="group" href="~/Areas/WebAdmin/Content/Images/gallery/6.jpg">Read</a>
+                    </figcaption>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="~/Areas/WebAdmin/Content/Images/gallery/4.jpg" alt="img04" />
+                    <figcaption>
+                        <h3>Freshness</h3>
+                        <span>rerum facilis </span>
+                        <a class="fancybox" data-fancybox-group="group" href="~/Areas/WebAdmin/Content/Images/gallery/4.jpg">Read</a>
+                    </figcaption>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="~/Areas/WebAdmin/Content/Images/gallery/1.jpg" alt="img01" />
+                    <figcaption>
+                        <h3>Awesome</h3>
+                        <span>At vero eos</span>
+                        <a class="fancybox" data-fancybox-group="group" href="~/Areas/WebAdmin/Content/Images/gallery/1.jpg">Read</a>
+                    </figcaption>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="~/Areas/WebAdmin/Content/Images/gallery/2.jpg" alt="img02" />
+                    <figcaption>
+                        <h3>Music</h3>
+                        <span>atque corrupti </span>
+                        <a class="fancybox" data-fancybox-group="group" href="~/Areas/WebAdmin/Content/Images/gallery/2.jpg">Read</a>
+                    </figcaption>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="~/Areas/WebAdmin/Content/Images/gallery/3.jpg" alt="img03" />
+                    <figcaption>
+                        <h3>Clean Code</h3>
+                        <span>nice concept</span>
+                        <a class="fancybox" data-fancybox-group="group" href="~/Areas/WebAdmin/Content/Images/gallery/3.jpg">Read</a>
+                    </figcaption>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="~/Areas/WebAdmin/Content/Images/gallery/6.jpg" alt="img06" />
+                    <figcaption>
+                        <h3>Cheers</h3>
+                        <span>sumon ahmed</span>
+                        <a class="fancybox" data-fancybox-group="group" href="~/Areas/WebAdmin/Content/Images/gallery/6.jpg">Read</a>
+                    </figcaption>
+                </figure>
+            </li>
+        </ul>
+    </div>
+</section>
+@section Scripts {
+    <script src="~/Areas/WebAdmin/Content/assets/fancybox/source/jquery.fancybox.js"></script><!-- FANCYBOX JS -->
+    <script src="~/Areas/WebAdmin/Scripts/modernizr.custom.js"></script><!-- MORDERNIZR JS -->
+    <script src="~/Areas/WebAdmin/Scripts/toucheffects.js"></script><!-- TOUCH EFFECTS JS -->
+    <script>
+        $(function () {
+            //    fancybox
+            jQuery(".fancybox").fancybox();
+        });
+    </script>
+}  

@@ -1,0 +1,592 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E7D8C5B2-18B9-4091-8208-7776B704738D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BS.BackEnd</RootNamespace>
+    <AssemblyName>BS.BackEnd</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.2.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.2.1\lib\net45\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Mvc5.4.0.0\lib\net451\Autofac.Integration.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.WebApi2.4.0.1\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.Extended, Version=6.0.0.0, Culture=neutral, PublicKeyToken=05b7e29bdd433584, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.Extended.6.1.0.168\lib\net45\EntityFramework.Extended.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\AutofacConfig.cs" />
+    <Compile Include="App_Start\AutofacWebApiConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\WebAdmin\Controllers\CasesController.cs" />
+    <Compile Include="Areas\WebAdmin\Controllers\FromController.cs" />
+    <Compile Include="Areas\WebAdmin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\WebAdmin\Controllers\LogController.cs" />
+    <Compile Include="Areas\WebAdmin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\WebAdmin\Controllers\LoginHistoryController.cs" />
+    <Compile Include="Areas\WebAdmin\Controllers\MailBoxController.cs" />
+    <Compile Include="Areas\WebAdmin\Api\NewsApiController.cs" />
+    <Compile Include="Areas\WebAdmin\Controllers\NewsClassController.cs" />
+    <Compile Include="Areas\WebAdmin\Controllers\NewsController.cs" />
+    <Compile Include="Areas\WebAdmin\Controllers\PictureController.cs" />
+    <Compile Include="Areas\WebAdmin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\WebAdmin\Controllers\QuestionController.cs" />
+    <Compile Include="Areas\WebAdmin\Controllers\SearchController.cs" />
+    <Compile Include="Areas\WebAdmin\Controllers\SettingController.cs" />
+    <Compile Include="Areas\WebAdmin\Controllers\WidgetController.cs" />
+    <Compile Include="Areas\WebAdmin\WebAdminAreaRegistration.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\WebAdmin\app\NewsVM.js" />
+    <Content Include="Areas\WebAdmin\CommonJS\AjaxHelper.js" />
+    <Content Include="Areas\WebAdmin\CommonJS\Common.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\advanced-datatable\examples\examples_support\details_open.png" />
+    <Content Include="Areas\WebAdmin\Content\assets\advanced-datatable\media\css\demo_page.css" />
+    <Content Include="Areas\WebAdmin\Content\assets\advanced-datatable\media\css\demo_table.css" />
+    <Content Include="Areas\WebAdmin\Content\assets\advanced-datatable\media\js\jquery.dataTables.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\advanced-datatable\media\js\jquery.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-colorpicker\css\colorpicker.css" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-colorpicker\img\alpha.png" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-colorpicker\img\hue.png" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-colorpicker\img\saturation.png" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-colorpicker\js\bootstrap-colorpicker.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-datepicker\css\datepicker.css" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-datepicker\js\bootstrap-datepicker.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-daterangepicker\date.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-daterangepicker\daterangepicker-bs3.css" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-daterangepicker\daterangepicker.css" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-daterangepicker\daterangepicker.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-daterangepicker\moment.min.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-datetimepicker\css\datetimepicker.css" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-datetimepicker\js\bootstrap-datetimepicker.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-fileupload\fileinput.css" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-fileupload\fileinput.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-fileupload\zh.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-inputmask\bootstrap-inputmask.min.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-timepicker\compiled\timepicker.css" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-timepicker\js\bootstrap-timepicker.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-validator\bootstrapValidator.css" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-validator\bootstrapValidator.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-validator\bootstrapValidator.min.css" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-validator\bootstrapValidator.min.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-validator\language\zh_CN.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-validator\language\zh_TW.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-wysihtml5\bootstrap-wysihtml5.css" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-wysihtml5\bootstrap-wysihtml5.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\bootstrap-wysihtml5\wysihtml5-0.3.0.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\chart-master\Chart.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\ckeditor\ckeditor.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\data-tables\DT_bootstrap.css" />
+    <Content Include="Areas\WebAdmin\Content\assets\data-tables\DT_bootstrap.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\data-tables\images\sort_both.png" />
+    <Content Include="Areas\WebAdmin\Content\assets\data-tables\images\sort_desc.png" />
+    <Content Include="Areas\WebAdmin\Content\assets\data-tables\jquery.dataTables.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\dropzone\css\dropzone.css" />
+    <Content Include="Areas\WebAdmin\Content\assets\dropzone\dropzone.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\dropzone\form-dropzone.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\dropzone\images\spritemap%402x.png" />
+    <Content Include="Areas\WebAdmin\Content\assets\dropzone\images\spritemap.png" />
+    <Content Include="Areas\WebAdmin\Content\assets\fancybox\source\blank.gif" />
+    <Content Include="Areas\WebAdmin\Content\assets\fancybox\source\fancybox_loading.gif" />
+    <Content Include="Areas\WebAdmin\Content\assets\fancybox\source\fancybox_overlay.png" />
+    <Content Include="Areas\WebAdmin\Content\assets\fancybox\source\fancybox_sprite.png" />
+    <Content Include="Areas\WebAdmin\Content\assets\fancybox\source\jquery.fancybox.css" />
+    <Content Include="Areas\WebAdmin\Content\assets\fancybox\source\jquery.fancybox.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\file-uploader\css\jquery.fileupload-ui.css" />
+    <Content Include="Areas\WebAdmin\Content\assets\file-uploader\css\jquery.fileupload.css" />
+    <Content Include="Areas\WebAdmin\Content\assets\file-uploader\img\loading.gif" />
+    <Content Include="Areas\WebAdmin\Content\assets\file-uploader\js\cors\jquery.xdr-transport.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\file-uploader\js\jquery.fileupload-audio.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\file-uploader\js\jquery.fileupload-image.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\file-uploader\js\jquery.fileupload-process.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\file-uploader\js\jquery.fileupload-ui.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\file-uploader\js\jquery.fileupload-validate.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\file-uploader\js\jquery.fileupload-video.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\file-uploader\js\jquery.fileupload.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\file-uploader\js\jquery.iframe-transport.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\file-uploader\js\main.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\file-uploader\js\vendor\jquery.ui.widget.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\flot\jquery.flot.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\flot\jquery.flot.pie.resize.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\flot\jquery.flot.resize.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\flot\jquery.flot.selection.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\flot\jquery.flot.stack.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\flot\jquery.flot.time.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\flot\jquery.flot.tooltip.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\font-awesome\css\font-awesome.css" />
+    <Content Include="Areas\WebAdmin\Content\assets\fuelux\css\tree-style.css" />
+    <Content Include="Areas\WebAdmin\Content\assets\fuelux\img\tree-icons.png" />
+    <Content Include="Areas\WebAdmin\Content\assets\fuelux\js\spinner.min.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\fuelux\js\tree.min.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\fullcalendar\fullcalendar\bootstrap-fullcalendar.css" />
+    <Content Include="Areas\WebAdmin\Content\assets\fullcalendar\fullcalendar\fullcalendar.min.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\gritter\images\gritter-light.png" />
+    <Content Include="Areas\WebAdmin\Content\assets\gritter\images\gritter.png" />
+    <Content Include="Areas\WebAdmin\Content\assets\gritter\images\ie-spacer.gif" />
+    <Content Include="Areas\WebAdmin\Content\assets\gritter\js\jquery.gritter.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-file-upload\css\jquery.fileupload-ui.css" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-file-upload\img\loading.gif" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-file-upload\img\progressbar.gif" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-file-upload\js\jquery.fileupload-fp.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-file-upload\js\jquery.fileupload-ui.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-file-upload\js\jquery.fileupload.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-file-upload\js\jquery.iframe-transport.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-file-upload\js\vendor\canvas-to-blob.min.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-file-upload\js\vendor\jquery.ui.widget.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-file-upload\js\vendor\load-image.min.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-file-upload\js\vendor\tmpl.min.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-knob\js\jquery.knob.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-multi-select\css\multi-select.css" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-multi-select\img\switch.png" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-multi-select\js\jquery.multi-select.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-multi-select\js\jquery.quicksearch.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-ui\images\animated-overlay.gif" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-ui\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-ui\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-ui\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-ui\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-ui\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-ui\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-ui\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-ui\images\ui-icons_222222_256x240.png" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-ui\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-ui\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-ui\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-ui\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-ui\jquery-ui-1.10.1.custom.min.css" />
+    <Content Include="Areas\WebAdmin\Content\assets\jquery-ui\jquery-ui-1.10.1.custom.min.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\morris.js-0.4.3\morris.css" />
+    <Content Include="Areas\WebAdmin\Content\assets\morris.js-0.4.3\morris.min.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\morris.js-0.4.3\raphael-min.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\nestable\jquery.nestable.css" />
+    <Content Include="Areas\WebAdmin\Content\assets\nestable\jquery.nestable.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\xchart\d3.v3.min.js" />
+    <Content Include="Areas\WebAdmin\Content\assets\xchart\xcharts.css" />
+    <Content Include="Areas\WebAdmin\Content\assets\xchart\xcharts.min.js" />
+    <Content Include="Areas\WebAdmin\Content\bootstrap-reset.css" />
+    <Content Include="Areas\WebAdmin\Content\bootstrap.min.css" />
+    <Content Include="Areas\WebAdmin\Content\font-awesome.css" />
+    <Content Include="Areas\WebAdmin\Content\gallery.css" />
+    <Content Include="Areas\WebAdmin\Content\Images\alert.png" />
+    <Content Include="Areas\WebAdmin\Content\Images\arrow-up.png" />
+    <Content Include="Areas\WebAdmin\Content\Images\avatar-mini.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\avatar-mini2.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\avatar-mini3.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\avatar-mini4.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\avatar1.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\avatar1_small.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\avatar\avatar-1.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\avatar\avatar-2.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\avatar\avatar-3.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\avatar\avatar-4.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\chart-texture.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\chat-avatar.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\chat-avatar2.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\chat-search.png" />
+    <Content Include="Areas\WebAdmin\Content\Images\checkbox\check-off.png" />
+    <Content Include="Areas\WebAdmin\Content\Images\checkbox\check-on.png" />
+    <Content Include="Areas\WebAdmin\Content\Images\checkbox\radio-off.png" />
+    <Content Include="Areas\WebAdmin\Content\Images\checkbox\radio-on.png" />
+    <Content Include="Areas\WebAdmin\Content\Images\customSelect-arrow.gif" />
+    <Content Include="Areas\WebAdmin\Content\Images\email-img\iphone.png" />
+    <Content Include="Areas\WebAdmin\Content\Images\email-img\logo.png" />
+    <Content Include="Areas\WebAdmin\Content\Images\email-img\photo1.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\email-img\photo2.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\email-img\social_facebook.png" />
+    <Content Include="Areas\WebAdmin\Content\Images\email-img\social_googleplus.png" />
+    <Content Include="Areas\WebAdmin\Content\Images\email-img\social_linkedin.png" />
+    <Content Include="Areas\WebAdmin\Content\Images\email-img\social_rss.png" />
+    <Content Include="Areas\WebAdmin\Content\Images\email-img\social_twitter.png" />
+    <Content Include="Areas\WebAdmin\Content\Images\fb-img.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\fb_post_image.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\flags\de.png" />
+    <Content Include="Areas\WebAdmin\Content\Images\flags\es.png" />
+    <Content Include="Areas\WebAdmin\Content\Images\flags\fr.png" />
+    <Content Include="Areas\WebAdmin\Content\Images\flags\ru.png" />
+    <Content Include="Areas\WebAdmin\Content\Images\flags\us.png" />
+    <Content Include="Areas\WebAdmin\Content\Images\follower-avatar.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\gallery\1.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\gallery\2.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\gallery\3.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\gallery\4.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\gallery\5.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\gallery\6.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\image.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\input-spinner.gif" />
+    <Content Include="Areas\WebAdmin\Content\Images\left-arrow.png" />
+    <Content Include="Areas\WebAdmin\Content\Images\loading-sm.gif" />
+    <Content Include="Areas\WebAdmin\Content\Images\loading.gif" />
+    <Content Include="Areas\WebAdmin\Content\Images\lock-bg.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\mail-avatar.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\mask.png" />
+    <Content Include="Areas\WebAdmin\Content\Images\nav-expand.png" />
+    <Content Include="Areas\WebAdmin\Content\Images\pro-ac-1.png" />
+    <Content Include="Areas\WebAdmin\Content\Images\pro-ac-2.png" />
+    <Content Include="Areas\WebAdmin\Content\Images\product-list\pro-1.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\product-list\pro-thumb-1.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\product-list\pro-thumb-2.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\product-list\pro-thumb-3.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\product-list\pro-thumb-big.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\product-list\pro1.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\product-list\pro2.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\product-list\pro3.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\product1.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\product2.png" />
+    <Content Include="Areas\WebAdmin\Content\Images\product3.png" />
+    <Content Include="Areas\WebAdmin\Content\Images\profile-avatar.jpg" />
+    <Content Include="Areas\WebAdmin\Content\Images\right-arrow.png" />
+    <Content Include="Areas\WebAdmin\Content\Images\search-icon.png" />
+    <Content Include="Areas\WebAdmin\Content\Images\search-img.jpg" />
+    <Content Include="Areas\WebAdmin\Content\invoice-print.css" />
+    <Content Include="Areas\WebAdmin\Content\jquery.stepy.css" />
+    <Content Include="Areas\WebAdmin\Content\style.css" />
+    <Content Include="Areas\WebAdmin\Content\table-responsive.css" />
+    <Content Include="Areas\WebAdmin\Content\tasks.css" />
+    <Content Include="Areas\WebAdmin\Scripts\advanced-form-components.js" />
+    <Content Include="Areas\WebAdmin\Scripts\all-chartjs.js" />
+    <Content Include="Areas\WebAdmin\Scripts\bootbox.min.js" />
+    <Content Include="Areas\WebAdmin\Scripts\bootstrap-switch.js" />
+    <Content Include="Areas\WebAdmin\Scripts\bootstrap.min.js" />
+    <Content Include="Areas\WebAdmin\Scripts\calendar\clndr.js" />
+    <Content Include="Areas\WebAdmin\Scripts\calendar\evnt.calendar.init.js" />
+    <Content Include="Areas\WebAdmin\Scripts\calendar\moment-2.2.1.js" />
+    <Content Include="Areas\WebAdmin\Scripts\chart.js" />
+    <Content Include="Areas\WebAdmin\Scripts\common-scripts.js" />
+    <Content Include="Areas\WebAdmin\Scripts\count.js" />
+    <Content Include="Areas\WebAdmin\Scripts\draggable-portlet.js" />
+    <Content Include="Areas\WebAdmin\Scripts\editable-table.js" />
+    <Content Include="Areas\WebAdmin\Scripts\external-dragging-calendar.js" />
+    <Content Include="Areas\WebAdmin\Scripts\flot-chart.js" />
+    <Content Include="Areas\WebAdmin\Scripts\form-component.js" />
+    <Content Include="Areas\WebAdmin\Scripts\form-validation-script.js" />
+    <Content Include="Areas\WebAdmin\Scripts\ga.js" />
+    <Content Include="Areas\WebAdmin\Scripts\gmaps-scripts.js" />
+    <Content Include="Areas\WebAdmin\Scripts\gmaps.js" />
+    <Content Include="Areas\WebAdmin\Scripts\gritter.js" />
+    <Content Include="Areas\WebAdmin\Scripts\hover-dropdown.js" />
+    <Content Include="Areas\WebAdmin\Scripts\html5shiv.js" />
+    <Content Include="Areas\WebAdmin\Scripts\jquery-1.11.1.js" />
+    <Content Include="Areas\WebAdmin\Scripts\jquery-1.11.1.min.js" />
+    <Content Include="Areas\WebAdmin\Scripts\jquery-knob\jquery.knob.js" />
+    <Content Include="Areas\WebAdmin\Scripts\jquery-ui-1.9.2.custom.min.js" />
+    <Content Include="Areas\WebAdmin\Scripts\jquery.customSelect.min.js" />
+    <Content Include="Areas\WebAdmin\Scripts\jquery.dcjqaccordion.2.7.js" />
+    <Content Include="Areas\WebAdmin\Scripts\jquery.js" />
+    <Content Include="Areas\WebAdmin\Scripts\jquery.nicescroll.js" />
+    <Content Include="Areas\WebAdmin\Scripts\jquery.scrollTo.min.js" />
+    <Content Include="Areas\WebAdmin\Scripts\jquery.sparkline.js" />
+    <Content Include="Areas\WebAdmin\Scripts\jquery.stepy.js" />
+    <Content Include="Areas\WebAdmin\Scripts\jquery.tagsinput.js" />
+    <Content Include="Areas\WebAdmin\Scripts\jquery.ui.touch-punch.min.js" />
+    <Content Include="Areas\WebAdmin\Scripts\jquery.validate.min.js" />
+    <Content Include="Areas\WebAdmin\Scripts\modernizr.custom.js" />
+    <Content Include="Areas\WebAdmin\Scripts\morris-script.js" />
+    <Content Include="Areas\WebAdmin\Scripts\morris.js-0.4.3\morris.min.js" />
+    <Content Include="Areas\WebAdmin\Scripts\morris.js-0.4.3\raphael-min.js" />
+    <Content Include="Areas\WebAdmin\Scripts\nestable.js" />
+    <Content Include="Areas\WebAdmin\Scripts\respond.min.js" />
+    <Content Include="Areas\WebAdmin\Scripts\sliders.js" />
+    <Content Include="Areas\WebAdmin\Scripts\sparkline-chart.js" />
+    <Content Include="Areas\WebAdmin\Scripts\tasks.js" />
+    <Content Include="Areas\WebAdmin\Scripts\toucheffects.js" />
+    <Content Include="Areas\WebAdmin\Scripts\tree.js" />
+    <Content Include="Areas\WebAdmin\Scripts\bootstrap-paginator.min.js" />
+    <Content Include="Areas\WebAdmin\UploadFile\20161122\QQ截图20161122100128.jpg" />
+    <Content Include="Areas\WebAdmin\UploadFile\20161122\QQ截图20161122100137.jpg" />
+    <Content Include="Areas\WebAdmin\UploadFile\20161122\sda.jpeg" />
+    <Content Include="Areas\WebAdmin\UploadFile\20161122\中华人民共和国标准.png" />
+    <Content Include="Areas\WebAdmin\UploadFile\20161124\QQ截图20161122100128.jpg" />
+    <Content Include="Areas\WebAdmin\UploadFile\20161124\QQ截图20161122100137.jpg" />
+    <Content Include="Areas\WebAdmin\UploadFile\20161124\sda.jpeg" />
+    <Content Include="Areas\WebAdmin\UploadFile\20161124\中华人民共和国标准.png" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\WebAdmin\Views\web.config" />
+    <Content Include="Areas\WebAdmin\Content\assets\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\WebAdmin\Content\assets\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\WebAdmin\Content\assets\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\WebAdmin\Content\assets\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\WebAdmin\Content\assets\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Areas\WebAdmin\Fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\WebAdmin\Fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\WebAdmin\Fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\WebAdmin\Fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\WebAdmin\Fonts\FontAwesome.otf" />
+    <Content Include="Areas\WebAdmin\Fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\WebAdmin\Fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Areas\WebAdmin\Fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Areas\WebAdmin\Fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\WebAdmin\Views\Cases\Index.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\Cases\_PartialCasesList.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\From\Components.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\From\Examples.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\From\Index.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\From\Validation.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\Home\Info.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\LoginHistory\Index.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\Login\Index.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\Login\Lock.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\Log\Index.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\MailBox\Inbox.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\MailBox\MailDetails.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\NewsClass\Create.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\NewsClass\Edit.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\NewsClass\Index.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\News\Create.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\News\Edit.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\News\Index.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\Picture\Index.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\Product\_PartialProductList.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\Question\Index.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\Search\Index.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\Setting\Detail.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\Setting\Error.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\Setting\Index.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\Setting\Message.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\WebAdmin\Views\Widget\Index.cshtml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\vue.js" />
+    <Content Include="Scripts\vue.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\WebAdmin\Content\assets\advanced-datatable\media\images\" />
+    <Folder Include="Areas\WebAdmin\Content\assets\gritter\css\" />
+    <Folder Include="Areas\WebAdmin\Models\" />
+    <Folder Include="Models\" />
+    <Folder Include="Views\Home\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entity\Entity.csproj">
+      <Project>{b120eb9e-dd71-48bd-ab59-c01fee28b5a6}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RepositoryIService\RepositoryIService.csproj">
+      <Project>{1aa595d5-4c04-4d38-8ecd-89684524dcca}</Project>
+      <Name>RepositoryIService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RepositoryService\RepositoryService.csproj">
+      <Project>{1b8e00f6-76d6-435d-aa62-704b199358ed}</Project>
+      <Name>RepositoryService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>11810</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:11810/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
