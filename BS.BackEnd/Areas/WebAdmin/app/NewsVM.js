@@ -61,7 +61,7 @@ var vum = new Vue({
                                 })
                             }
                         }
-                        ajaxHelper.delete("/api/NewsApi/DeleteNews?id" + item.ID, null, delcallback)
+                        ajaxHelper.delete("/api/NewsApi/DeleteNews?id=" + item.ID, null, delcallback)
                     }
                 }
             });
