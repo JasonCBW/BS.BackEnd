@@ -179,6 +179,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\BSWeb.mdf" />
+    <Content Include="App_Data\BSWeb_log.ldf">
+      <DependentUpon>BSWeb.mdf</DependentUpon>
+    </Content>
     <Content Include="Areas\WebAdmin\app\NewsVM.js" />
     <Content Include="Areas\WebAdmin\CommonJS\AjaxHelper.js" />
     <Content Include="Areas\WebAdmin\CommonJS\Common.js" />
@@ -527,7 +531,6 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Areas\WebAdmin\Content\assets\advanced-datatable\media\images\" />
     <Folder Include="Areas\WebAdmin\Content\assets\gritter\css\" />
     <Folder Include="Areas\WebAdmin\Models\" />
