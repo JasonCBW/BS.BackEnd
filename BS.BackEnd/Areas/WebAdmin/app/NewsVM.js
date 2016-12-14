@@ -5,10 +5,9 @@ var vum = new Vue({
     el: "#editable-sample",
     data: {
         PageIndex: 1,
-        NewsList: [],
-        IsChecked: false
+        NewsList: []
     },
-    ready: function () {
+    mounted: function () {
         this.getNewsList()
     },
     methods: {
@@ -18,7 +17,7 @@ var vum = new Vue({
             callback = function (data) {
                 var list = JSON.parse(data);
                 var pages = list["PageCount"];
-                vm.$set('NewsList', list["Rows"]);
+                vm.NewsList = list["Rows"];
                 vm.initPage(vm.PageIndex, pages);
             }
             ajaxHelper.get("/api/NewsApi/GetNewsByPage", pageData, callback)
@@ -32,7 +31,8 @@ var vum = new Vue({
             }
             element.bootstrapPaginator(options);
         },
-        deleteNews: function (item) {
+        deleteNews: function (index, item) {
+            var vum = this;
             //弹出对话确认框
             bootbox.confirm({
                 message: "确定删除所选数据?",
@@ -51,17 +51,16 @@ var vum = new Vue({
                         //然后发送异步请求的信息到后台删除数据 
                         delcallback = function (data) {
                             if (data) {
-                                var vm = this;
-                                alert(item.index);
-                                //vm.NewsList.$remove(item)
                                 bootbox.alert({
                                     message: "删除成功",
                                     size: 'small',
                                     backdrop: true
-                                })
+                                });
+                                //删除后重新加载当前页数据
+                                paging(vum.PageIndex);
                             }
                         }
-                        ajaxHelper.delete("/api/NewsApi/DeleteNews?id=" + item.ID, null, delcallback)
+                        ajaxHelper.delete("/api/NewsApi/DeleteNews?id=" + item.ID, null, delcallback);
                     }
                 }
             });
