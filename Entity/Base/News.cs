@@ -22,6 +22,9 @@ namespace Entity.Base
         [DisplayName("推荐")]
         public bool IsElite { get; set; }
 
+        [DisplayName("选中")]
+        public bool Selected { get; set; }
+
         [DisplayName("小图")]
         public string SmallImageUrlList { get; set; }
 

@@ -8,7 +8,23 @@ var vum = new Vue({
         NewsList: []
     },
     mounted: function () {
-        this.getNewsList()
+        this.getNewsList();
+    },
+    computed: {
+        checkAll: {
+            //getter
+            get: function () {
+                return this.NewsList.reduce(function (prev, curr) {
+                    return prev && curr.Selected;
+                }, true);
+            },
+            // setter
+            set: function (val) {
+                this.NewsList.forEach(function (item) {
+                    item.Selected = val;
+                });
+            }
+        }
     },
     methods: {
         getNewsList: function () {
