@@ -29,16 +29,16 @@
                 <thead>
                     <tr>
                         <th><input type="checkbox" id="selectAll" class="checkbox form-control w-20"></th>
-                        <th>@Html.DisplayNameFor(model => model.First().Title)</th>
-                        <th>@Html.DisplayNameFor(model => model.First().Author)</th>
-                        <th>@Html.DisplayNameFor(model => model.First().Source)</th>
-                        <th>@Html.DisplayNameFor(model => model.First().Sort)</th>
+                        <th>标题</th>
+                        <th>作者</th>
+                        <th>来源</th>
+                        <th>排序</th>
                         <th>操作</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="item of NewsList">
-                        <td><input type="checkbox" class="checkbox form-control w-20" value="{{item.ID}}"></td>
+                    <tr v-for="(item, index) in NewsList">
+                        <td><input type="checkbox" class="checkbox form-control w-20" value="item.ID"></td>
                         <td>{{item.Title}}</td>
                         <td>{{item.Author}}</td>
                         <td>{{item.Source}}</td>
@@ -49,7 +49,7 @@
                                 </i>
                             </a>
                             <a class="btn btn-danger btn-xs">
-                                <i class="fa fa-trash-o" v-on:click="deleteNews(item)">
+                                <i class="fa fa-trash-o" v-on:click="deleteNews(index,item)">
                                 </i>
                             </a>
                         </td>
