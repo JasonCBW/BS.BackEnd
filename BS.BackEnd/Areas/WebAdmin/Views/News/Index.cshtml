@@ -16,7 +16,7 @@
             </i>
             <span>新增</span>
         </a>
-        <a class="btn btn-sm btn-danger delete" href="@Url.Action("DeleteByIDList", "News")">
+        <a class="btn btn-sm btn-danger delete" v-on:click="deleteByIDList()">
             <i class="glyphicon glyphicon-trash">
             </i>
             <span>删除所选</span>
@@ -37,7 +37,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(item, index) in NewsList">
+                    <tr v-for="item, index in NewsList">
                         <td><input type="checkbox" class="checkbox form-control w-20" v-model="item.Selected" v-bind:id="item.ID" v-bind:value="item.ID"></td>
                         <td>{{item.Title}}</td>
                         <td>{{item.Author}}</td>
@@ -49,7 +49,7 @@
                                 </i>
                             </a>
                             <a class="btn btn-danger btn-xs">
-                                <i class="fa fa-trash-o" v-on:click="deleteNews(index,item)">
+                                <i class="fa fa-trash-o" v-on:click="deleteSingle(index,item)">
                                 </i>
                             </a>
                         </td>

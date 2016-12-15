@@ -78,5 +78,26 @@ namespace BS.BackEnd.Areas.WebAdmin.Controllers
             }
             return false;
         }
+
+        /// <summary>
+        /// 根据ID数组进行批量删除
+        /// </summary>
+        /// <param name="idlist">ID数组</param>
+        /// <returns></returns>
+        [Route("api/NewsApi/DeleteByIDList")]
+        [HttpDelete]
+        public bool DeleteByIDList(string ids)
+        {
+            if (!string.IsNullOrEmpty(ids))
+            {
+                int[] intArray = BS.Common.Converter.StringToIntArry(ids);
+
+                if (_news.Delete(p => intArray.Contains(p.ID)) > 0)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

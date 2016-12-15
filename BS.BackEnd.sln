@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryIService", "Repos
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryService", "RepositoryService\RepositoryService.csproj", "{1B8E00F6-76D6-435D-AA62-704B199358ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSCommon", "BSCommon\BSCommon.csproj", "{BD065CE6-6D19-4741-9A35-71A4D57CDC2C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{1B8E00F6-76D6-435D-AA62-704B199358ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B8E00F6-76D6-435D-AA62-704B199358ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B8E00F6-76D6-435D-AA62-704B199358ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD065CE6-6D19-4741-9A35-71A4D57CDC2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD065CE6-6D19-4741-9A35-71A4D57CDC2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD065CE6-6D19-4741-9A35-71A4D57CDC2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD065CE6-6D19-4741-9A35-71A4D57CDC2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

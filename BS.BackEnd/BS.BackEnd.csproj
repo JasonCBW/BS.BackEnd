@@ -545,6 +545,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BSCommon\BSCommon.csproj">
+      <Project>{bd065ce6-6d19-4741-9a35-71a4d57cdc2c}</Project>
+      <Name>BSCommon</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Entity\Entity.csproj">
       <Project>{b120eb9e-dd71-48bd-ab59-c01fee28b5a6}</Project>
       <Name>Entity</Name>
