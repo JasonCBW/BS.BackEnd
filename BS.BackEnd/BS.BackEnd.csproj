@@ -183,6 +183,7 @@
     <Content Include="App_Data\BSWeb_log.ldf">
       <DependentUpon>BSWeb.mdf</DependentUpon>
     </Content>
+    <Content Include="Areas\WebAdmin\app\NewsApp.js" />
     <Content Include="Areas\WebAdmin\app\NewsVM.js" />
     <Content Include="Areas\WebAdmin\CommonJS\AjaxHelper.js" />
     <Content Include="Areas\WebAdmin\CommonJS\Common.js" />
@@ -394,6 +395,12 @@
     <Content Include="Areas\WebAdmin\Scripts\all-chartjs.js" />
     <Content Include="Areas\WebAdmin\Scripts\bootbox.min.js" />
     <Content Include="Areas\WebAdmin\Scripts\bootstrap-switch.js" />
+    <Content Include="Areas\WebAdmin\Scripts\bootstrap-table\bootstrap-table-zh-CN.min.js" />
+    <Content Include="Areas\WebAdmin\Scripts\bootstrap-table\bootstrap-table.css" />
+    <Content Include="Areas\WebAdmin\Scripts\bootstrap-table\bootstrap-table.js" />
+    <Content Include="Areas\WebAdmin\Scripts\bootstrap-table\bootstrap-table.min.css" />
+    <Content Include="Areas\WebAdmin\Scripts\bootstrap-table\bootstrap-table.min.js" />
+    <Content Include="Areas\WebAdmin\Scripts\bootstrap-table\export\tableExport.js" />
     <Content Include="Areas\WebAdmin\Scripts\bootstrap.min.js" />
     <Content Include="Areas\WebAdmin\Scripts\calendar\clndr.js" />
     <Content Include="Areas\WebAdmin\Scripts\calendar\evnt.calendar.init.js" />
@@ -403,6 +410,8 @@
     <Content Include="Areas\WebAdmin\Scripts\count.js" />
     <Content Include="Areas\WebAdmin\Scripts\draggable-portlet.js" />
     <Content Include="Areas\WebAdmin\Scripts\editable-table.js" />
+    <Content Include="Areas\WebAdmin\Scripts\bootstrap-table\export\bootstrap-table-export.js" />
+    <Content Include="Areas\WebAdmin\Scripts\bootstrap-table\export\bootstrap-table-export.min.js" />
     <Content Include="Areas\WebAdmin\Scripts\external-dragging-calendar.js" />
     <Content Include="Areas\WebAdmin\Scripts\flot-chart.js" />
     <Content Include="Areas\WebAdmin\Scripts\form-component.js" />

@@ -16,7 +16,7 @@
             </i>
             <span>新增</span>
         </a>
-        <a class="btn btn-sm btn-danger delete" v-on:click="deleteByIDList()">
+        <a class="btn btn-sm btn-danger delete" id="DeleteAll">
             <i class="glyphicon glyphicon-trash">
             </i>
             <span>删除所选</span>
@@ -24,48 +24,26 @@
     </header>
 
     <div class="panel-body">
-        <div class="adv-table editable-table">
-            <table class="table table-striped table-hover table-bordered" id="editable-sample">
-                <thead>
-                    <tr>
-                        <th><input type="checkbox" id="selectAll" v-model="checkAll" class="checkbox form-control w-20"></th>
-                        <th>标题</th>
-                        <th>作者</th>
-                        <th>来源</th>
-                        <th>排序</th>
-                        <th>操作</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="item, index in NewsList">
-                        <td><input type="checkbox" class="checkbox form-control w-20" v-model="item.Selected" v-bind:id="item.ID" v-bind:value="item.ID"></td>
-                        <td>{{item.Title}}</td>
-                        <td>{{item.Author}}</td>
-                        <td>{{item.Source}}</td>
-                        <td>{{item.Sort}}</td>
-                        <td>
-                            <a class="btn btn-primary btn-xs">
-                                <i class="fa fa-pencil">
-                                </i>
-                            </a>
-                            <a class="btn btn-danger btn-xs">
-                                <i class="fa fa-trash-o" v-on:click="deleteSingle(index,item)">
-                                </i>
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="media text-center">
-                <ul class="pagination"></ul>
-            </div>
+        <div id="toolbar" class="btn-group">
+            <select id="sel_exportoption" class="form-control">
+                <option value="">导出本页数据</option>
+                <option value="all">导出所有数据</option>
+                <option value="selected">导出已选数据</option>
+            </select>
         </div>
+        <table id="editable-sample"></table>
     </div>
+
 </section>
 @section scripts{
+    <link href="~/Areas/WebAdmin/Scripts/bootstrap-table/bootstrap-table.css" rel="stylesheet" />
     <script src="~/Areas/WebAdmin/Scripts/bootbox.min.js"></script>
     <script src="~/Areas/WebAdmin/CommonJS/AjaxHelper.js"></script>
     <script src="~/Areas/WebAdmin/CommonJS/Common.js"></script>
-    <script src="~/Areas/WebAdmin/app/NewsVM.js"></script>
-    <script src="~/Areas/WebAdmin/Scripts/bootstrap-paginator.min.js"></script>
+    <script src="~/Areas/WebAdmin/Scripts/bootstrap-table/bootstrap-table.js"></script>
+    <script src="~/Areas/WebAdmin/Scripts/bootstrap-table/export/bootstrap-table-export.js"></script>
+    <script src="~/Areas/WebAdmin/Scripts/bootstrap-table/export/tableExport.js"></script>
+    <script src="~/Areas/WebAdmin/Scripts/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+    <script src="~/Areas/WebAdmin/app/NewsApp.js"></script>
+
 }

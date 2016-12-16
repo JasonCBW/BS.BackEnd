@@ -9,6 +9,7 @@ using Entity.Base;
 using Newtonsoft.Json;
 using System.Configuration;
 using Newtonsoft.Json.Linq;
+using System.Text;
 
 namespace BS.BackEnd.Areas.WebAdmin.Controllers
 {
@@ -19,45 +20,69 @@ namespace BS.BackEnd.Areas.WebAdmin.Controllers
         public NewsApiController(INewsService newsservices)
         {
             this._news = newsservices;
+        } 
+
+        /// <summary>
+        /// 根据ID获取新闻详细
+        /// </summary>
+        /// <returns></returns>
+        [Route("api/NewsApi/GetByID")]
+        public HttpResponseMessage GetByID(int id)
+        {
+            HttpResponseMessage result = null;
+
+            if (id != 0)
+            {
+                string str = JsonConvert.SerializeObject(_news.FirstOrDefault(id));
+
+                result = BS.Common.Converter.StringToJson(str);
+            }
+            return result;
         }
 
         /// <summary>
-        /// 获取全部新闻
+        /// 获取全部信息（分页方式为Client用这个）
         /// </summary>
         /// <returns></returns>
         [Route("api/NewsApi/GetAll")]
-        public string GetAll()
+        public HttpResponseMessage GetAll()
         {
-            var results = JsonConvert.SerializeObject(_news.GetList());
+            //数据列表
+            var list = _news.GetList();
 
-            return results;
+            //待返回的JSON数据
+            HttpResponseMessage result = null;
+
+            if (list != null)
+            {
+                result = BS.Common.Converter.StringToJson(JsonConvert.SerializeObject(list));
+            }
+            return result;
         }
 
         /// <summary>
-        /// 根据页码获取新闻
+        /// 根据页码获取新闻（分页方式为server时用这个）
         /// </summary>
         /// <param name="pageIndex">页码</param>
         /// <returns></returns>
         [Route("api/NewsApi/GetNewsByPage")]
-        public string GetNewsByPage(int pageIndex)
+        public HttpResponseMessage GetNewsByPage(int limit, int offset)
         {
-            int count;
+            HttpResponseMessage result = null;
 
-            var results = "{ \"Rows\":";
+            var list = _news.GetList();
 
-            int pageSize = Convert.ToInt32(ConfigurationManager.AppSettings["pageSize"]);
+            if (list != null)
+            {
+                var totalPages = list.Count();
 
-            var list = _news.FindPageList(p => p.ID != 0, p => p.Sort != 0, pageIndex, pageSize, out count);
+                var results = "{ \"total\":" + totalPages;
 
-            int totalPages = Convert.ToInt32(Math.Ceiling((double)count / (double)pageSize));
+                results += ",\"rows\":" + JsonConvert.SerializeObject(list.Skip(offset).Take(limit).ToList()) + "}";
 
-            results += JsonConvert.SerializeObject(list);
-
-            results += ",\"CurrentPage\":" + pageIndex.ToString();
-
-            results += ",\"PageCount\":" + totalPages.ToString() + "}";
-
-            return results;
+                result = BS.Common.Converter.StringToJson(results);
+            }
+            return result;
         }
 
         /// <summary>

@@ -41,8 +41,6 @@ namespace BS.BackEnd.Areas.WebAdmin.Controllers
             return View(pagedList);
         }
 
-
-
         /// <summary>
         /// 编辑视图
         /// </summary>
@@ -98,7 +96,7 @@ namespace BS.BackEnd.Areas.WebAdmin.Controllers
         {
             if (ModelState.IsValid)
             {
-                news.CreateDate = DateTime.Now; 
+                news.CreateDate = DateTime.Now;
                 _news.Add(news);
                 return RedirectToAction("Index");
             }

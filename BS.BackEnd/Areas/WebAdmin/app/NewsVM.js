@@ -46,53 +46,7 @@ var vum = new Vue({
                 totalPages: totals
             }
             element.bootstrapPaginator(options);
-        },
-        deleteByIDList: function () {
-            var v = this;
-            var ids = [];
-            var splicelist = [];
-            this.NewsList.forEach(function (item, index) {
-                if (item.Selected) {
-                    ids.push(item.ID);
-                    splicelist.push(index);
-                }
-            })
-            //将数据元素的索引反转一下便于删除
-            splicelist = splicelist.reverse(); 
-            //弹出对话确认框
-            bootbox.confirm({
-                message: "确定删除所选数据?",
-                buttons: {
-                    confirm: {
-                        label: '确定',
-                        className: 'btn-success'
-                    },
-                    cancel: {
-                        label: '取消',
-                        className: 'btn-danger'
-                    }
-                },
-                callback: function (result) {
-                    if (result) {
-                        //删除后重新加载当前页数据 
-                        //splicelist.forEach(function (i) {
-                        //    v.NewsList.splice(i, 1);
-                        //})
-                        //选中的ID数组  
-                        callback = function (data) {
-                            if (data) {
-                                bootbox.alert({
-                                    message: "删除成功",
-                                    size: 'small',
-                                    backdrop: true
-                                });
-                            }
-                        }
-                        //ajaxHelper.delete("/api/NewsApi/DeleteByIDList?ids=" + ids, null, callback);
-                    }
-                }
-            });
-        },
+        }, 
         deleteSingle: function (index, item) {
             var vum = this;
             //弹出对话确认框
