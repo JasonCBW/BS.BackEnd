@@ -6,8 +6,7 @@ using System.Web.Mvc;
 using BS.RepositoryIService;
 using Entity.Base;
 using System.IO;
-using System.Text;
-using PagedList;
+using System.Text; 
 using System.Configuration;
 
 namespace BS.BackEnd.Areas.WebAdmin.Controllers
@@ -22,21 +21,9 @@ namespace BS.BackEnd.Areas.WebAdmin.Controllers
         }
 
         // GET: WebAdmin/NewsClass  
-        public ActionResult Index(int? page = 1)
-        {
-            //获取新闻分类列表
-            var newslist = _newsclass.GetAll();
-
-            //第几页  
-            int pageNumber = page ?? 1;
-
-            //每页显示多少条  
-            int pageSize = int.Parse(ConfigurationManager.AppSettings["pageSize"]);
-
-            //通过ToPagedList扩展方法进行分页  
-            IPagedList<NewsClass> pagedList = newslist.ToPagedList(pageNumber, pageSize);
-
-            return View(pagedList);
+        public ActionResult Index()
+        { 
+            return View();
         }
 
         /// <summary>

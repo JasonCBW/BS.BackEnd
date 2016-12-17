@@ -10,7 +10,9 @@
     <script src="~/Areas/WebAdmin/Content/assets/bootstrap-fileupload/fileinput.js"></script>
     <script src="~/Areas/WebAdmin/Content/assets/bootstrap-fileupload/zh.js"></script>
     <script src="~/Areas/WebAdmin/Scripts/bootbox.min.js"></script>
-    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Areas/WebAdmin/Scripts/summernote/summernote.js"></script>
+    <script src="~/Areas/WebAdmin/Scripts/summernote/summernote-zh-CN.js"></script>
+    <link href="~/Areas/WebAdmin/Scripts/summernote/summernote.css" rel="stylesheet" />
     <script type="text/javascript">
 
         $('form').bootstrapValidator({
@@ -23,6 +25,14 @@
                     }
                 }
             }
+        });
+
+        $('#Content').summernote({
+            height: 200,                 // set editor height
+            minHeight: null,             // set minimum height of editor
+            maxHeight: null,             // set maximum height of editor
+            focus: true,                  // set focus to editable area after initializing summernote
+            lang: "zh-CN"
         });
 
 

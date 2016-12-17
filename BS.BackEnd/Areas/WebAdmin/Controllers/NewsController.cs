@@ -7,7 +7,6 @@ using BS.RepositoryIService;
 using Entity.Base;
 using System.IO;
 using System.Text;
-using PagedList;
 using System.Configuration;
 
 namespace BS.BackEnd.Areas.WebAdmin.Controllers
@@ -24,21 +23,9 @@ namespace BS.BackEnd.Areas.WebAdmin.Controllers
         }
 
         // GET: WebAdmin/News
-        public ActionResult Index(int? page = 1)
+        public ActionResult Index()
         {
-            //获取新闻列表
-            var newslist = _news.GetList();
-
-            //第几页  
-            int pageNumber = page ?? 1;
-
-            //每页显示多少条  
-            int pageSize = int.Parse(ConfigurationManager.AppSettings["pageSize"]);
-
-            //通过ToPagedList扩展方法进行分页  
-            IPagedList<News> pagedList = newslist.ToPagedList(pageNumber, pageSize);
-
-            return View(pagedList);
+            return View();
         }
 
         /// <summary>
@@ -104,33 +91,6 @@ namespace BS.BackEnd.Areas.WebAdmin.Controllers
             {
                 return View(news);
             }
-        }
-
-        /// <summary>
-        /// 删除
-        /// </summary>
-        /// <param name="id">主键ID</param>
-        /// <returns></returns>
-        public ActionResult Delete(int id)
-        {
-            var news = _news.FirstOrDefault(id);
-            if (news != null)
-                _news.Delete(news);
-            return RedirectToAction("Index");
-        }
-
-        /// <summary>
-        /// 批量勾选删除
-        /// </summary>
-        /// <param name="idlist">主键ID数组</param>
-        /// <returns></returns>
-        public ActionResult DeleteByIDList(int[] idlist)
-        {
-            if (_news.Delete(p => idlist.Contains(p.ID)) > 0)
-            {
-                return RedirectToAction("Index");
-            }
-            return RedirectToAction("Index");
         }
 
         /// <summary>

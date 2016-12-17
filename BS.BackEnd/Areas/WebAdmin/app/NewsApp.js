@@ -103,27 +103,34 @@ var TableInit = function () {
             }, {
                 field: 'ID',
                 title: '编号',
+                align: 'center',
                 sortable: true
             }, {
                 field: 'Title',
                 title: '标题',
+                align: 'center',
                 sortable: true
             }, {
                 field: 'Author',
                 title: '作者',
-                sortable: true
-            }, {
-                field: 'Source',
-                title: '来源',
+                align: 'center',
                 sortable: true
             },
             {
-                field: 'Sort',
-                title: '排序',
+                field: 'Source',
+                title: '来源',
+                align: 'center',
+                sortable: true
+            },
+            {
+                field: 'IsElite',
+                title: '是否推荐',
+                align: 'center',
                 sortable: true
             }, {
                 field: 'operation',
                 title: '操作',
+                align: 'center',
                 formatter: function (value, row, index) {
                     var s = '<a class="btn btn-primary btn-xs" href="/WebAdmin/News/Edit/' + row.ID + '"><i class="fa fa-pencil"></i></a>';
                     var d = '<a class="btn btn-danger btn-xs" name="del"><i class="fa fa-trash-o"></i></a>';

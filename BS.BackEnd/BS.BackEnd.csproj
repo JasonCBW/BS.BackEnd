@@ -64,14 +64,6 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
-      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
-      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -444,6 +436,10 @@
     <Content Include="Areas\WebAdmin\Scripts\respond.min.js" />
     <Content Include="Areas\WebAdmin\Scripts\sliders.js" />
     <Content Include="Areas\WebAdmin\Scripts\sparkline-chart.js" />
+    <Content Include="Areas\WebAdmin\Scripts\summernote\summernote-zh-CN.js" />
+    <Content Include="Areas\WebAdmin\Scripts\summernote\summernote.css" />
+    <Content Include="Areas\WebAdmin\Scripts\summernote\summernote.js" />
+    <Content Include="Areas\WebAdmin\Scripts\summernote\summernote.min.js" />
     <Content Include="Areas\WebAdmin\Scripts\tasks.js" />
     <Content Include="Areas\WebAdmin\Scripts\toucheffects.js" />
     <Content Include="Areas\WebAdmin\Scripts\tree.js" />
@@ -458,7 +454,6 @@
     <Content Include="Areas\WebAdmin\UploadFile\20161124\中华人民共和国标准.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fuck.txt" />
     <Content Include="Global.asax" />
@@ -510,6 +505,9 @@
     <Content Include="Areas\WebAdmin\Views\Setting\Message.cshtml" />
     <Content Include="Areas\WebAdmin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\WebAdmin\Views\Widget\Index.cshtml" />
+    <Content Include="Areas\WebAdmin\Fonts\summernote.eot" />
+    <Content Include="Areas\WebAdmin\Fonts\summernote.ttf" />
+    <Content Include="Areas\WebAdmin\Fonts\summernote.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -524,7 +522,6 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\vue.js" />
-    <Content Include="Scripts\vue.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
