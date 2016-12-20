@@ -136,67 +136,68 @@
     <link href="~/Areas/WebAdmin/Scripts/summernote/summernote.css" rel="stylesheet" />
     <script type="text/javascript">
 
-        // 初始化获取原有文件
+        // 初始化获取图片信息
         $(function () {
             $.ajax({
                 type: "get",
-                url: "/api/NewsApi/GetByID?id=" + 10,
+                url: "/api/PictureApi/GetPicByParentID?parentId=" + 1,
                 dataType: "json",
                 success: function (data) {
-                    showPhotos(data);
+                    showPicture(data);
                 }
             });
 
+            //$("#ImageUrlList").fileinput('destroy');
         });
 
-        function showPhotos(djson) {
-            //后台返回json字符串转换为json对象
-            var reData = djson.BigImageUrlList.split(',');
+
+        function showPicture(djson) {
             // 预览图片json数据组
             var preList = new Array();
-            for (var i = 0; i < reData.length; i++) {
+            for (var i = 0; i < djson.length; i++) {
                 // 图片类型
-                preList[i] = '<img src="' + reData[i] + '" class="file-preview-image" style="width:auto;height:160px;">';
-
+                preList[i] = '<img src="' + djson[i].FilePath + '" class="file-preview-image" style="width:auto;height:160px;">';
             }
             var previewJson = preList;
-            alert(previewJson);
             // 与上面 预览图片json数据组 对应的config数据
             var preConfigList = new Array();
-            for (var i = 0; i < reData.length; i++) {
-                var array_element = reData[i];
+            for (var i = 0; i < djson.length; i++) {
                 var tjson = {
-                    caption: "fuck" + i, // 展示的文件名
-                    width: '160px'
+                    caption: djson[i].FileName, // 展示的文件名
+                    width: '120px',
+                    url: '/api/PictureApi/DeleteByID?id=' + djson[i].ID,
+                    key: djson[i].ID,
+                    size: djson[i].FileSize
                 };
                 preConfigList[i] = tjson;
             }
-            alert(preConfigList);
             // 具体参数自行查询
             $('#ImageUrlList').fileinput({
                 language: 'zh',
                 uploadUrl: '/WebAdmin/News/ImgUpload',
                 uploadAsync: false,//同步上传，一次传多个文件，为true时，为多个文件多次请求上传
                 showUpload: true,//是否显示上传按钮
-                showCaption: false,//是否显示输入框
+                showPreview: true,
+                showRemove: false,
                 dropZoneEnabled: false,
                 maxFileCount: 10,
+                overwriteInitial: false,
                 msgFilesTooMany: "选择上传的文件数量超过允许的最大数值！",
                 previewFileIcon: '<i class="fa fa-file"></i>',
                 allowedPreviewTypes: ['image'],
                 allowedFileExtensions: ['jpg', 'png', 'jpeg', 'bmp', 'gif'],
                 maxFileSize: 10240,
-                initialPreview: [
-       "<img src='http://img.xmiles.cn/slotmachine/20151014/10coupon-v2.png' class='file-preview-image' />",
-       "<img src='http://img.xmiles.cn/slotmachine/20151014/5coupon-v2.png' class='file-preview-image' />",
-                ],
+                initialPreview: preList,
                 initialPreviewConfig: preConfigList
-            }).off('filepreupload').on('filepreupload', function () {
-                //                                  alert(data.url);
+            }).on("filebatchselected", function (event, files) {
+                //为自动上传时取消注释
+                //$(this).fileinput("upload");
             }).on("filebatchuploadsuccess", function (event, data, previewId, index) {
-                //文件上传成功后返回的数据， 此处我只保存返回文件的id
+                //uploadAsync为true时，才是fileuploaded的响应结果，为false时，才是filebatchuploadsuccess的响应结果
+                $("#BigImageUrlList").val(data.response);
             });
         }
+
 
 
         $('form').bootstrapValidator({

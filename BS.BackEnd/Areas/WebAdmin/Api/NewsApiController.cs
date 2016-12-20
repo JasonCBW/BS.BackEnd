@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using BS.RepositoryIService;
 using Entity.Base;
 using Newtonsoft.Json;
-using System.Configuration;
-using Newtonsoft.Json.Linq;
-using System.Text;
 
-namespace BS.BackEnd.Areas.WebAdmin.Controllers
+namespace BS.BackEnd.Areas.WebAdmin.Api
 {
     public class NewsApiController : ApiController
     {

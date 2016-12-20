@@ -147,6 +147,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\WebAdmin\Api\PictureApiController.cs" />
     <Compile Include="Areas\WebAdmin\Controllers\CasesController.cs" />
     <Compile Include="Areas\WebAdmin\Controllers\FromController.cs" />
     <Compile Include="Areas\WebAdmin\Controllers\HomeController.cs" />
@@ -454,7 +455,6 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fuck.txt" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
