@@ -61,6 +61,7 @@
     <Compile Include="Repository\CasesRepository.cs" />
     <Compile Include="Repository\NewsClassRepository.cs" />
     <Compile Include="Repository\NewsRepository.cs" />
+    <Compile Include="Repository\PictureRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -46,6 +46,7 @@
     <Compile Include="Base\Cases.cs" />
     <Compile Include="Base\NewsClass.cs" />
     <Compile Include="Base\News.cs" />
+    <Compile Include="Base\Picture.cs" />
     <Compile Include="Base\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

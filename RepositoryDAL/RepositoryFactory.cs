@@ -23,5 +23,10 @@ namespace BS.RepositoryDAL
         /// 案例仓储
         /// </summary>
         public static ICasesRepository CasesRepository { get { return new CasesRepository(); } }
+
+        /// <summary>
+        /// 图片仓储
+        /// </summary>
+        public static IPictureRepository PictureRepository { get { return new PictureRepository(); } }
     }
 }

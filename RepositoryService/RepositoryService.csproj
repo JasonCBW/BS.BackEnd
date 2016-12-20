@@ -44,6 +44,7 @@
     <Compile Include="BaseService\CasesService.cs" />
     <Compile Include="BaseService\NewsClassService.cs" />
     <Compile Include="BaseService\NewsService.cs" />
+    <Compile Include="BaseService\PictureService.cs" />
     <Compile Include="BaseService\ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
