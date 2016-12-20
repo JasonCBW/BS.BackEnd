@@ -20,7 +20,7 @@ namespace BS.BackEnd.Areas.WebAdmin.Controllers
         public NewsApiController(INewsService newsservices)
         {
             this._news = newsservices;
-        } 
+        }
 
         /// <summary>
         /// 根据ID获取新闻详细
@@ -122,6 +122,18 @@ namespace BS.BackEnd.Areas.WebAdmin.Controllers
                     return true;
                 }
             }
+            return false;
+        }
+
+        /// <summary>
+        /// 添加新闻
+        /// </summary>
+        /// <param name="newsEntity"></param>
+        /// <returns></returns>
+        public bool AddNews(News newsEntity)
+        {
+            newsEntity.CreateDate = DateTime.Now;
+            _news.Add(newsEntity);
             return false;
         }
     }
