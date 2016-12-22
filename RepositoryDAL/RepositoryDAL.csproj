@@ -58,6 +58,7 @@
     <Compile Include="DBContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryFactory.cs" />
+    <Compile Include="Repository\LoginRepository.cs" />
     <Compile Include="Repository\CasesRepository.cs" />
     <Compile Include="Repository\NewsClassRepository.cs" />
     <Compile Include="Repository\NewsRepository.cs" />

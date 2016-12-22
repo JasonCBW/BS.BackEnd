@@ -28,5 +28,10 @@ namespace BS.RepositoryDAL
         /// 图片仓储
         /// </summary>
         public static IPictureRepository PictureRepository { get { return new PictureRepository(); } }
+
+        /// <summary>
+        /// 用户仓储
+        /// </summary>
+        public static ILoginRepository LoginRepository { get { return new LoginRepository(); } }
     }
 }

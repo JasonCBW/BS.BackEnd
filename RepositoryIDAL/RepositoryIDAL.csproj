@@ -53,6 +53,7 @@
     <Compile Include="Base\INewsClassRepository.cs" />
     <Compile Include="Base\INewsRepository.cs" />
     <Compile Include="Base\IPictureRepository.cs" />
+    <Compile Include="Base\ILoginRepository.cs" />
     <Compile Include="Base\IProductRepository.cs" />
     <Compile Include="IBaseRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
