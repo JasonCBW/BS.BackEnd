@@ -3,8 +3,12 @@ using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
 using BS.RepositoryIService;
+using BS.RepositoryDAL;
 using Entity.Base;
 using Newtonsoft.Json;
+using System.Text;
+using System.Data.Common;
+using System.Data.SqlClient;
 
 namespace BS.BackEnd.Areas.WebAdmin.Api
 {
@@ -26,8 +30,15 @@ namespace BS.BackEnd.Areas.WebAdmin.Api
             {
                 string str = JsonConvert.SerializeObject(_pictureRepository.GetPicByParentID(parentId));
 
-                result = BS.Common.Converter.StringToJson(str);
+                result = BS.Code.Converter.StringToJson(str);
             }
+
+            var db = new DBContext();
+
+            string strSql = string.Format(@"select * from News where id!= 0"); 
+
+            var list = db.Database.SqlQuery<News>(strSql).ToList<News>();
+
             return result;
         }
 

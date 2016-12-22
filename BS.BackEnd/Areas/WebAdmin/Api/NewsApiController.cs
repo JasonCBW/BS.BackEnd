@@ -30,7 +30,7 @@ namespace BS.BackEnd.Areas.WebAdmin.Api
             {
                 string str = JsonConvert.SerializeObject(_news.FirstOrDefault(id));
 
-                result = BS.Common.Converter.StringToJson(str);
+                result = BS.Code.Converter.StringToJson(str);
             }
             return result;
         }
@@ -50,7 +50,7 @@ namespace BS.BackEnd.Areas.WebAdmin.Api
 
             if (list != null)
             {
-                result = BS.Common.Converter.StringToJson(JsonConvert.SerializeObject(list));
+                result = BS.Code.Converter.StringToJson(JsonConvert.SerializeObject(list));
             }
             return result;
         }
@@ -75,7 +75,7 @@ namespace BS.BackEnd.Areas.WebAdmin.Api
 
                 results += ",\"rows\":" + JsonConvert.SerializeObject(list.Skip(offset).Take(limit).ToList()) + "}";
 
-                result = BS.Common.Converter.StringToJson(results);
+                result = BS.Code.Converter.StringToJson(results);
             }
             return result;
         }
@@ -110,7 +110,7 @@ namespace BS.BackEnd.Areas.WebAdmin.Api
         {
             if (!string.IsNullOrEmpty(ids))
             {
-                int[] intArray = BS.Common.Converter.StringToIntArry(ids);
+                int[] intArray = BS.Code.Converter.StringToIntArry(ids);
 
                 if (_news.Delete(p => intArray.Contains(p.ID)) > 0)
                 {

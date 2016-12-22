@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -382,6 +383,8 @@
     <Content Include="Areas\WebAdmin\Content\Images\search-img.jpg" />
     <Content Include="Areas\WebAdmin\Content\invoice-print.css" />
     <Content Include="Areas\WebAdmin\Content\jquery.stepy.css" />
+    <Content Include="Areas\WebAdmin\Content\Login\framework-font.css" />
+    <Content Include="Areas\WebAdmin\Content\Login\framework-login.css" />
     <Content Include="Areas\WebAdmin\Content\style.css" />
     <Content Include="Areas\WebAdmin\Content\table-responsive.css" />
     <Content Include="Areas\WebAdmin\Content\tasks.css" />
@@ -401,6 +404,7 @@
     <Content Include="Areas\WebAdmin\Scripts\calendar\moment-2.2.1.js" />
     <Content Include="Areas\WebAdmin\Scripts\chart.js" />
     <Content Include="Areas\WebAdmin\Scripts\common-scripts.js" />
+    <Content Include="Areas\WebAdmin\Scripts\cookie\jquery.cookie.js" />
     <Content Include="Areas\WebAdmin\Scripts\count.js" />
     <Content Include="Areas\WebAdmin\Scripts\draggable-portlet.js" />
     <Content Include="Areas\WebAdmin\Scripts\editable-table.js" />
@@ -430,6 +434,7 @@
     <Content Include="Areas\WebAdmin\Scripts\jquery.tagsinput.js" />
     <Content Include="Areas\WebAdmin\Scripts\jquery.ui.touch-punch.min.js" />
     <Content Include="Areas\WebAdmin\Scripts\jquery.validate.min.js" />
+    <Content Include="Areas\WebAdmin\Scripts\md5\jquery.md5.js" />
     <Content Include="Areas\WebAdmin\Scripts\modernizr.custom.js" />
     <Content Include="Areas\WebAdmin\Scripts\morris-script.js" />
     <Content Include="Areas\WebAdmin\Scripts\morris.js-0.4.3\morris.min.js" />
@@ -552,13 +557,17 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BSCommon\BSCommon.csproj">
-      <Project>{bd065ce6-6d19-4741-9a35-71a4d57cdc2c}</Project>
-      <Name>BSCommon</Name>
+    <ProjectReference Include="..\BS.Code\BS.Code.csproj">
+      <Project>{db19ce03-c307-43fe-a209-08aa4ae10e21}</Project>
+      <Name>BS.Code</Name>
     </ProjectReference>
     <ProjectReference Include="..\Entity\Entity.csproj">
       <Project>{b120eb9e-dd71-48bd-ab59-c01fee28b5a6}</Project>
       <Name>Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RepositoryDAL\RepositoryDAL.csproj">
+      <Project>{fa2493ff-af66-4c6d-804f-d18eaba2bfc7}</Project>
+      <Name>RepositoryDAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\RepositoryIService\RepositoryIService.csproj">
       <Project>{1aa595d5-4c04-4d38-8ecd-89684524dcca}</Project>

@@ -48,6 +48,7 @@
     <Compile Include="Base\News.cs" />
     <Compile Include="Base\Picture.cs" />
     <Compile Include="Base\Product.cs" />
+    <Compile Include="Base\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
