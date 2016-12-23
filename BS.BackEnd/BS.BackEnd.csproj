@@ -153,7 +153,6 @@
     <Compile Include="Areas\WebAdmin\Controllers\FromController.cs" />
     <Compile Include="Areas\WebAdmin\Controllers\HomeController.cs" />
     <Compile Include="Areas\WebAdmin\Controllers\LogController.cs" />
-    <Compile Include="Areas\WebAdmin\Controllers\LoginController.cs" />
     <Compile Include="Areas\WebAdmin\Controllers\LoginHistoryController.cs" />
     <Compile Include="Areas\WebAdmin\Controllers\MailBoxController.cs" />
     <Compile Include="Areas\WebAdmin\Api\NewsApiController.cs" />
@@ -166,7 +165,7 @@
     <Compile Include="Areas\WebAdmin\Controllers\SettingController.cs" />
     <Compile Include="Areas\WebAdmin\Controllers\WidgetController.cs" />
     <Compile Include="Areas\WebAdmin\WebAdminAreaRegistration.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -489,8 +488,6 @@
     <Content Include="Areas\WebAdmin\Views\From\Validation.cshtml" />
     <Content Include="Areas\WebAdmin\Views\Home\Info.cshtml" />
     <Content Include="Areas\WebAdmin\Views\LoginHistory\Index.cshtml" />
-    <Content Include="Areas\WebAdmin\Views\Login\Index.cshtml" />
-    <Content Include="Areas\WebAdmin\Views\Login\Lock.cshtml" />
     <Content Include="Areas\WebAdmin\Views\Log\Index.cshtml" />
     <Content Include="Areas\WebAdmin\Views\MailBox\Inbox.cshtml" />
     <Content Include="Areas\WebAdmin\Views\MailBox\MailDetails.cshtml" />
@@ -514,6 +511,10 @@
     <Content Include="Areas\WebAdmin\Fonts\summernote.eot" />
     <Content Include="Areas\WebAdmin\Fonts\summernote.ttf" />
     <Content Include="Areas\WebAdmin\Fonts\summernote.woff" />
+    <Content Include="Areas\WebAdmin\Content\Login\Fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\WebAdmin\Content\Login\Fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\WebAdmin\Content\Login\Fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\WebAdmin\Content\Login\Fonts\fontawesome-webfont.svg" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -541,13 +542,13 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\WebAdmin\Content\assets\advanced-datatable\media\images\" />
     <Folder Include="Areas\WebAdmin\Content\assets\gritter\css\" />
     <Folder Include="Areas\WebAdmin\Models\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

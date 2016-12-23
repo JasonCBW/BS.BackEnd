@@ -7,7 +7,7 @@ namespace Entity.Base
     public class BaseEntity
     {
         [DisplayName("编号")]
-        public int ID { get; set; }
+        public string ID { get; set; }
 
         [DisplayName("状态")]
         public bool Status { get; set; }

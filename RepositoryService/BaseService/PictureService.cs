@@ -15,14 +15,14 @@ namespace BS.RepositoryService
         /// 获取全部的图片信息
         /// </summary>
         /// <returns></returns>
-        public IQueryable<Picture> GetList() { return CurrentRepository.FindList(pic => pic.ID != 0).OrderBy(n => n.ID); }
+        public IQueryable<Picture> GetList() { return CurrentRepository.FindList(pic => true).OrderBy(n => n.ID); }
 
         /// <summary>
         /// 根据ID获取指定图片信息
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
-        public Picture FirstOrDefault(int ID)
+        public Picture FirstOrDefault(string ID)
         {
             return CurrentRepository.Find(t => t.ID == ID);
         }
@@ -32,7 +32,7 @@ namespace BS.RepositoryService
         /// </summary>
         /// <param name="ParentID"></param>
         /// <returns></returns>
-        public IQueryable<Picture> GetPicByParentID(int ParentID)
+        public IQueryable<Picture> GetPicByParentID(string ParentID)
         {
             return CurrentRepository.FindList(pic => pic.ParentID == ParentID).OrderBy(p => p.ID).ThenByDescending(p => p.Sort);
         }

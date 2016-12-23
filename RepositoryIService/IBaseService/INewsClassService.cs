@@ -9,6 +9,6 @@ namespace BS.RepositoryIService
 
         IQueryable<NewsClass> GetAll();
 
-        NewsClass FirstOrDefault(int ID);
+        NewsClass FirstOrDefault(string ID);
     }
 }

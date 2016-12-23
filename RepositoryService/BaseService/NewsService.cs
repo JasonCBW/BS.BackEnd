@@ -13,7 +13,7 @@ namespace BS.RepositoryService
 
         public IQueryable<News> GetList() { return CurrentRepository.FindList(news => true).OrderByDescending(n => n.Sort).OrderByDescending(n => n.ID); }
 
-        public News FirstOrDefault(int ID)
+        public News FirstOrDefault(string ID)
         {
             return CurrentRepository.Find(t => t.ID == ID);
         }

@@ -20,5 +20,7 @@ namespace BS.RepositoryDAL
         public DbSet<Cases> Cases { get; set; }
 
         public DbSet<Picture> Picture { get; set; }
+
+        public DbSet<User> User { get; set; }
     }
 }

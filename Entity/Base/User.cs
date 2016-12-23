@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entity.Base
 {
-    [Table("News")]
+    [Table("User")]
     public class User : BaseEntity
     {
         public string LoginName { get; set; }
@@ -15,7 +15,9 @@ namespace Entity.Base
 
         public string Phone { get; set; }
 
-        public string RoleList { get; set; }
+        public string UserSecretkey { get; set; }
+
+        public DateTime? LastVisitTime { get; set; }
 
         public string Remark { get; set; }
     }

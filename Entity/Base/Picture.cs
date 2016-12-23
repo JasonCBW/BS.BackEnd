@@ -14,7 +14,7 @@ namespace Entity.Base
 
         public decimal FileSize { get; set; }
 
-        public int ParentID { get; set; }
+        public string ParentID { get; set; }
 
         public int Sort { get; set; } 
 

@@ -7,7 +7,7 @@ using BS.RepositoryIService;
 using Entity.Base;
 using BS.Code;
 
-namespace BS.BackEnd.Areas.WebAdmin.Controllers
+namespace BS.BackEnd.Controllers
 {
     public class LoginController : Controller
     {
@@ -18,18 +18,25 @@ namespace BS.BackEnd.Areas.WebAdmin.Controllers
             _loginRepository = loginService;
         }
 
-        // GET: WebAdmin/Login
         public ActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// 生成验证码
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult GetAuthCode()
         {
             return File(new VerifyCode().GetVerifyCode(), @"image/Gif");
         }
 
+        /// <summary>
+        /// 注销
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult OutLogin()
         {
@@ -48,6 +55,13 @@ namespace BS.BackEnd.Areas.WebAdmin.Controllers
             return RedirectToAction("Index", "Login");
         }
 
+        /// <summary>
+        /// 用户登录检查
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="code"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult CheckLogin(string username, string password, string code)
         {
@@ -62,7 +76,7 @@ namespace BS.BackEnd.Areas.WebAdmin.Controllers
                 }
 
                 User user = _loginRepository.FirstOrDefault(username, password);
-                //UserEntity userEntity = new UserApp().CheckLogin(username, password);
+
                 if (user != null)
                 {
                     OperatorModel operatorModel = new OperatorModel();
@@ -100,13 +114,6 @@ namespace BS.BackEnd.Areas.WebAdmin.Controllers
                 //new LogApp().WriteDbLog(logEntity);
                 return Content(new AjaxResult { state = ResultType.error.ToString(), message = ex.Message }.ToJson());
             }
-        }
-
-        public ActionResult Lock()
-        {
-            return View();
-        }
-
-
+        } 
     }
 }

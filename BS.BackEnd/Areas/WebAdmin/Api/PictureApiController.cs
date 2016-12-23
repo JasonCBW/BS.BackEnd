@@ -5,10 +5,7 @@ using System.Web.Http;
 using BS.RepositoryIService;
 using BS.RepositoryDAL;
 using Entity.Base;
-using Newtonsoft.Json;
-using System.Text;
-using System.Data.Common;
-using System.Data.SqlClient;
+using Newtonsoft.Json; 
 
 namespace BS.BackEnd.Areas.WebAdmin.Api
 {
@@ -22,22 +19,22 @@ namespace BS.BackEnd.Areas.WebAdmin.Api
         }
 
         [Route("api/PictureApi/GetPicByParentID")]
-        public HttpResponseMessage GetPicByParentID(int parentId)
+        public HttpResponseMessage GetPicByParentID(string parentId)
         {
             HttpResponseMessage result = null;
 
-            if (parentId != 0)
+            if (parentId != "")
             {
                 string str = JsonConvert.SerializeObject(_pictureRepository.GetPicByParentID(parentId));
 
                 result = BS.Code.Converter.StringToJson(str);
             }
 
-            var db = new DBContext();
+            //var db = new DBContext();
 
-            string strSql = string.Format(@"select * from News where id!= 0"); 
+            //string strSql = string.Format(@"select * from News where id!= 0"); 
 
-            var list = db.Database.SqlQuery<News>(strSql).ToList<News>();
+            //var list = db.Database.SqlQuery<News>(strSql).ToList<News>();
 
             return result;
         }
@@ -49,9 +46,9 @@ namespace BS.BackEnd.Areas.WebAdmin.Api
         /// <returns></returns>
         [Route("api/PictureApi/DeleteByID")]
         [HttpDelete]
-        public bool DeleteByID(int id)
+        public bool DeleteByID(string id)
         {
-            if (id != 0)
+            if (id != "")
             {
                 var pic = _pictureRepository.FirstOrDefault(id);
                 if (pic != null)

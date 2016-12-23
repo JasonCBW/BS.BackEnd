@@ -32,7 +32,7 @@
             {
                 WebHelper.WriteSession(LoginUserKey, DESEncrypt.Encrypt(operatorModel.ToJson()));
             }
-            WebHelper.WriteCookie("nfine_mac", Md5.md5(Net.GetMacByNetworkInterface().ToJson(), 32));
+            WebHelper.WriteCookie("nfine_mac", Md5.md5(Net.GetMacByNetworkInterface().ToJson()));
             WebHelper.WriteCookie("nfine_licence", Licence.GetLicence());
         }
         public void RemoveCurrent()

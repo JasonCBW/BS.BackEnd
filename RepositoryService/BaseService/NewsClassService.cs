@@ -15,7 +15,7 @@ namespace BS.RepositoryService
         //获取所有分类
         public IQueryable<NewsClass> GetAll() { return CurrentRepository.FindList(news => true).OrderByDescending(n => n.ID); }
 
-        public NewsClass FirstOrDefault(int ID)
+        public NewsClass FirstOrDefault(string ID)
         {
             return CurrentRepository.Find(t => t.ID == ID);
         }

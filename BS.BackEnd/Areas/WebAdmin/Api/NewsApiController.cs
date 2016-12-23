@@ -22,11 +22,11 @@ namespace BS.BackEnd.Areas.WebAdmin.Api
         /// </summary>
         /// <returns></returns>
         [Route("api/NewsApi/GetByID")]
-        public HttpResponseMessage GetByID(int id)
+        public HttpResponseMessage GetByID(string id)
         {
             HttpResponseMessage result = null;
 
-            if (id != 0)
+            if (id != "")
             {
                 string str = JsonConvert.SerializeObject(_news.FirstOrDefault(id));
 
@@ -87,9 +87,9 @@ namespace BS.BackEnd.Areas.WebAdmin.Api
         /// <returns></returns>
         [Route("api/NewsApi/DeleteNews")]
         [HttpDelete]
-        public bool DeleteNews(int id)
+        public bool DeleteNews(string id)
         {
-            if (id != 0)
+            if (id != "")
             {
                 var news = _news.FirstOrDefault(id);
                 if (news != null)
@@ -112,7 +112,9 @@ namespace BS.BackEnd.Areas.WebAdmin.Api
             {
                 int[] intArray = BS.Code.Converter.StringToIntArry(ids);
 
-                if (_news.Delete(p => intArray.Contains(p.ID)) > 0)
+                string[] strArray = ids.Split(',');
+
+                if (_news.Delete(p => strArray.Contains(p.ID)) > 0)
                 {
                     return true;
                 }

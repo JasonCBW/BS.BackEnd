@@ -63,9 +63,9 @@ namespace BS.BackEnd.Areas.WebAdmin.Controllers
         /// </summary>
         /// <param name="id">主键ID</param>
         /// <returns></returns>
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(string id)
         {
-            var n = _newsclass.FirstOrDefault(Convert.ToInt32(id));
+            var n = _newsclass.FirstOrDefault(id);
             if (n == null)
                 return HttpNotFound();
             PopulateNewsClassDropDownList(n.ParentID);
@@ -103,7 +103,7 @@ namespace BS.BackEnd.Areas.WebAdmin.Controllers
             {
                 if (Request["ID"] != null)
                 {
-                    var id = Convert.ToInt32(Request["ID"]);
+                    var id =  Request["ID"].ToString();
                     var news = _newsclass.FirstOrDefault(id);
                     if (news != null)
                     {
@@ -131,9 +131,9 @@ namespace BS.BackEnd.Areas.WebAdmin.Controllers
             {
                 var idList = Request["Ids"];
                 if (!string.IsNullOrEmpty(idList))
-                {
-                    int[] ids = Array.ConvertAll<string, int>(idList.Split(','), s => int.Parse(s));
-                    if (_newsclass.Delete(p => ids.Contains(p.ID)) > 0)
+                { 
+                    string[] strArray = idList.Split(',');
+                    if (_newsclass.Delete(p => strArray.Contains(p.ID)) > 0)
                     {
                         result = "数据已成功删除!";
                         return Content(result);

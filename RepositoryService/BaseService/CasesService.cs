@@ -11,9 +11,9 @@ namespace BS.RepositoryService
 
         //扩展方法的实现
 
-        public IQueryable<Cases> GetList() { return CurrentRepository.FindList(news => news.ID != 0).OrderBy(n => n.ID); }
+        public IQueryable<Cases> GetList() { return CurrentRepository.FindList(news => true).OrderBy(n => n.ID); }
 
-        public Cases FirstOrDefault(int ID)
+        public Cases FirstOrDefault(string ID)
         {
             return CurrentRepository.Find(t => t.ID == ID);
         }

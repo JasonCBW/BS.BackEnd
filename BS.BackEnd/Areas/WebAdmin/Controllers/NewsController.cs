@@ -33,9 +33,9 @@ namespace BS.BackEnd.Areas.WebAdmin.Controllers
         /// </summary>
         /// <param name="id">主键ID</param>
         /// <returns></returns>
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(string id)
         {
-            var news = _news.FirstOrDefault(Convert.ToInt32(id));
+            var news = _news.FirstOrDefault(id);
             if (news == null)
                 return HttpNotFound();
             PopulateNewsClassDropDownList(news.NewsClassID);

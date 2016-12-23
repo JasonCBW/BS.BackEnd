@@ -1,12 +1,11 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations.Schema; 
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entity.Base
 {
     [Table("Product")]
-    public class Product
+    public class Product : BaseEntity
     {
-        public int ID { get; set; }
 
         public string Title { get; set; }
 
@@ -35,10 +34,6 @@ namespace Entity.Base
         public int Hits { get; set; }
 
         public int Sort { get; set; }
-
-        public int Status { get; set; }
-
-        public DateTime? StartTime { get; set; }
 
         public decimal Price { get; set; }
 

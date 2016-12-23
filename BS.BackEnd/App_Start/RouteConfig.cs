@@ -17,7 +17,7 @@ namespace BS.BackEnd
                 name: "Default",
                 namespaces: new string[] { "BS.BackEnd.Controllers" },
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Login", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

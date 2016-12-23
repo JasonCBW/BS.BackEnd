@@ -50,6 +50,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BS.Code\BS.Code.csproj">
+      <Project>{db19ce03-c307-43fe-a209-08aa4ae10e21}</Project>
+      <Name>BS.Code</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Entity\Entity.csproj">
       <Project>{b120eb9e-dd71-48bd-ab59-c01fee28b5a6}</Project>
       <Name>Entity</Name>
