@@ -176,8 +176,6 @@
     <Content Include="App_Data\BSWeb_log.ldf">
       <DependentUpon>BSWeb.mdf</DependentUpon>
     </Content>
-    <Content Include="Areas\sql\picture.sql" />
-    <Content Include="Areas\sql\sql说明.txt" />
     <Content Include="Areas\WebAdmin\app\NewsApp.js" />
     <Content Include="Areas\WebAdmin\app\NewsVM.js" />
     <Content Include="Areas\WebAdmin\CommonJS\AjaxHelper.js" />

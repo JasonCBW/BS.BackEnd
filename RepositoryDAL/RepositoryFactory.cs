@@ -32,6 +32,16 @@ namespace BS.RepositoryDAL
         /// <summary>
         /// 用户仓储
         /// </summary>
-        public static ILoginRepository LoginRepository { get { return new LoginRepository(); } }
+        public static IUserRepository UserRepository { get { return new UserRepository(); } }
+
+        /// <summary>
+        /// 用户信息仓储
+        /// </summary>
+        public static IUserLogOnRepository UserLogOnRepository { get { return new UserLogOnRepository(); } }
+
+        /// <summary>
+        /// 日志仓储
+        /// </summary>
+        public static ILogRepository LogRepository { get { return new LogRepository(); } }
     }
 }

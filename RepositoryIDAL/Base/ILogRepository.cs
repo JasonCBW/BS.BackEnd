@@ -2,7 +2,7 @@
 
 namespace BS.RepositoryIDAL
 {
-    public interface ILoginRepository : IBaseRepository<User>
+    public interface ILogRepository : IBaseRepository<LogEntity>
     {
     }
 }

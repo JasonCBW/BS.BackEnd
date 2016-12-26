@@ -48,8 +48,10 @@
     <Compile Include="Base\News.cs" />
     <Compile Include="Base\Picture.cs" />
     <Compile Include="Base\Product.cs" />
-    <Compile Include="Base\User.cs" />
+    <Compile Include="Base\LogEntity.cs" />
+    <Compile Include="Base\UserEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Base\UserLogOnEntity.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

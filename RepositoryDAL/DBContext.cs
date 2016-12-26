@@ -21,6 +21,8 @@ namespace BS.RepositoryDAL
 
         public DbSet<Picture> Picture { get; set; }
 
-        public DbSet<User> User { get; set; }
+        public DbSet<UserEntity> Users { get; set; }
+
+        public DbSet<LogEntity> Logs { get; set; }
     }
 }

@@ -78,6 +78,7 @@
     <Compile Include="Configs\Configs.cs" />
     <Compile Include="Configs\DBConnection.cs" />
     <Compile Include="Converter.cs" />
+    <Compile Include="DbLogType.cs" />
     <Compile Include="Excel\ExcelHelper.cs" />
     <Compile Include="Excel\NPOIExcel.cs" />
     <Compile Include="Extend\Ext.Convert.cs" />
@@ -93,8 +94,6 @@
     <Compile Include="GZip.cs" />
     <Compile Include="Json\Json.cs" />
     <Compile Include="Licence.cs" />
-    <Compile Include="Log\Log.cs" />
-    <Compile Include="Log\LogFactory.cs" />
     <Compile Include="Mail\MailHelper.cs" />
     <Compile Include="Net\HttpMethods.cs" />
     <Compile Include="Net\Net.cs" />

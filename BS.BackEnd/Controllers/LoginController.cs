@@ -11,11 +11,14 @@ namespace BS.BackEnd.Controllers
 {
     public class LoginController : Controller
     {
-        private readonly ILoginService _loginRepository;
+        private readonly IUserService _userRepository;
 
-        public LoginController(ILoginService loginService)
+        private readonly ILogService _logRepository;
+
+        public LoginController(IUserService loginService, ILogService logservice)
         {
-            _loginRepository = loginService;
+            _userRepository = loginService;
+            _logRepository = logservice;
         }
 
         public ActionResult Index()
@@ -65,9 +68,12 @@ namespace BS.BackEnd.Controllers
         [HttpPost]
         public ActionResult CheckLogin(string username, string password, string code)
         {
-
-            //logEntity.F_ModuleName = "系统登录";
-            //logEntity.F_Type = DbLogType.Login.ToString();
+            LogEntity logEntity = new LogEntity();
+            logEntity.ID = Common.GuId();
+            logEntity.F_ModuleName = "系统登录";
+            logEntity.F_IPAddress = Net.Ip;
+            logEntity.F_IPAddressName= Net.GetLocation(logEntity.F_IPAddress);
+            logEntity.F_Type = DbLogType.Login.ToString();
             try
             {
                 if (Session["bs_session_verifycode"].IsEmpty() || Md5.md5(code.ToLower()) != Session["bs_session_verifycode"].ToString())
@@ -75,45 +81,28 @@ namespace BS.BackEnd.Controllers
                     throw new Exception("验证码错误，请重新输入");
                 }
 
-                User user = _loginRepository.FirstOrDefault(username, password);
+                UserEntity user = _userRepository.CheckLogin(username, password);
 
                 if (user != null)
                 {
-                    OperatorModel operatorModel = new OperatorModel();
-                    operatorModel.UserId = user.ID;
-                    //operatorModel.UserCode = user.LoginName;
-                    operatorModel.UserName = user.LoginName;
-                    operatorModel.LoginIPAddress = Net.Ip;
-                    operatorModel.LoginIPAddressName = Net.GetLocation(operatorModel.LoginIPAddress);
-                    operatorModel.LoginTime = DateTime.Now;
-                    operatorModel.LoginToken = DESEncrypt.Encrypt(Guid.NewGuid().ToString());
-                    if (user.LoginName == "admin")
-                    {
-                        operatorModel.IsSystem = true;
-                    }
-                    else
-                    {
-                        operatorModel.IsSystem = false;
-                    }
-                    //OperatorProvider.Provider.AddCurrent(operatorModel);
-                    //logEntity.F_Account = userEntity.F_Account;
-                    //logEntity.F_NickName = userEntity.F_RealName;
-                    //logEntity.F_Result = true;
-                    //logEntity.F_Description = "登录成功";
-                    //new LogApp().WriteDbLog(logEntity);
+                    logEntity.F_Account = user.F_Account;
+                    logEntity.F_NickName = user.F_NickName;
+                    logEntity.F_Result = true;
+                    logEntity.F_Description = "登录成功";
+                    _logRepository.Add(logEntity);
 
                 }
                 return Content(new AjaxResult { state = ResultType.success.ToString(), message = "登录成功。" }.ToJson());
             }
             catch (Exception ex)
             {
-                //logEntity.F_Account = username;
-                //logEntity.F_NickName = username;
-                //logEntity.F_Result = false;
-                //logEntity.F_Description = "登录失败，" + ex.Message;
-                //new LogApp().WriteDbLog(logEntity);
+                logEntity.F_Account = username;
+                logEntity.F_NickName = username;
+                logEntity.F_Result = false;
+                logEntity.F_Description = "登录失败，" + ex.Message;
+                _logRepository.Add(logEntity);
                 return Content(new AjaxResult { state = ResultType.error.ToString(), message = ex.Message }.ToJson());
             }
-        } 
+        }
     }
 }

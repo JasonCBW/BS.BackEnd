@@ -7,13 +7,13 @@ using System;
 
 namespace BS.RepositoryService
 {
-    public class LoginService : BaseService<User>, ILoginService
+    public class UserService : BaseService<UserEntity>, IUserService
     {
-        public LoginService() : base(RepositoryFactory.LoginRepository) { }
+        public UserService() : base(RepositoryFactory.UserRepository) { }
 
         //扩展方法的实现
 
-        public IQueryable<User> GetList() { return CurrentRepository.FindList(u => true).OrderByDescending(n => n.ID); }
+        public IQueryable<UserEntity> GetList() { return CurrentRepository.FindList(u => true).OrderByDescending(n => n.ID); }
 
         /// <summary>
         /// 用户登录
@@ -21,17 +21,19 @@ namespace BS.RepositoryService
         /// <param name="name">用户名</param>
         /// <param name="pwd">密码</param>
         /// <returns></returns>
-        public User FirstOrDefault(string name, string pwd)
+        public UserEntity CheckLogin(string name, string pwd)
         {
-            User user = CurrentRepository.Find(t => t.LoginName == name);
+            UserEntity user = CurrentRepository.Find(t => t.F_Account == name || t.F_MobilePhone == name || t.F_Email == name);
             if (user != null)
             {
-                if (user.Status)
+                if (user.F_EnabledMark == true)
                 {
-                    string dbPassword = Md5.md5(DESEncrypt.Encrypt(pwd.ToLower(), user.UserSecretkey).ToLower()).ToLower();
-                    if (user.LoginPassword == dbPassword)
+                    string dbPassword = Md5.md5(DESEncrypt.Encrypt(pwd.ToLower(), user.F_UserSecretkey).ToLower()).ToLower();
+                    if (user.F_UserPassword == dbPassword)
                     {
-                        user.LastVisitTime = DateTime.Now;
+                        user.F_LastVisitTime = DateTime.Now;
+                        user.F_UserOnLine = true;
+                        user.F_LogOnCount += 1;
                         CurrentRepository.Update(user);
                         return user;
                     }
